@@ -1,0 +1,155 @@
+{% extends "_base.html" %}
+{% set titulek = "Engadin Hotel – školy v přírodě a lyžařské výcviky v Železné Rudě" %}
+{% macro stitek(t, cls='') %}<div class="stitek {{ cls }}"><svg viewBox="0 0 12 12"><path d="M6 0L12 6L6 12L0 6Z"/></svg><i></i><span>{{ t }}</span><i></i><svg viewBox="0 0 12 12"><path d="M6 0L12 6L6 12L0 6Z"/></svg></div>{% endmacro %}
+{% block obsah %}
+
+<section class="hero">
+  {{ img('zima-svah-2.jpg', 'Hotel Engadin v zimě, za ním sjezdovka Belvedere a zasněžený smrkový les', sizes='100vw') }}
+  <div class="hero-in">
+    {{ stitek('Železná Ruda · Šumava', 'vlevo') }}
+    <h1>Klid a příroda na kraji sjezdovky</h1>
+    <p>Hotel Engadin stojí přímo u ski areálu Belvedere, stranou rušné silnice. Školy v přírodě, lyžařské výcviky, sportovní kluby i turistické oddíly tu mají celý hotel pod jednou střechou.</p>
+    <div class="akce"><a class="btn" href="#kontakt">Poptat pobyt</a><a class="odkaz" href="#ceny">Ceník pro skupiny</a></div>
+  </div>
+  <div class="hero-pata"><span>140 lůžek</span><span>Sjezdovka u hotelu</span><span>Biotop Žabáky 250 m</span></div>
+</section>
+
+<section class="sekce" id="skupiny">
+  <div class="obal" data-odhal>
+    {{ stitek('Školy a skupiny') }}
+    <h2 class="h2 stred">Hotel pro skupiny na Šumavě</h2>
+  </div>
+  <div class="obal dvoj" style="margin-top:50px" data-odhal>
+    <div>
+      <p>Díky poloze přímo u ski areálu Belvedere je Engadin ideálním místem pro lyžařské výcviky a díky množství turistických tras v okolí i pro školy v přírodě a sportovní soustředění. Hotel leží daleko od hlavní silnice, takže si děti můžou v klidu hrát venku.</p>
+      <div class="fakta">
+        <div class="fakt"><svg viewBox="0 0 24 24"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6M3 14h18M3 18v2M21 18v2M6 10V7a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"/></svg><b>140</b><span>lůžek</span></div>
+        <div class="fakt"><svg viewBox="0 0 24 24"><path d="M4 21V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16M2 21h20M9 7h2M13 7h2M9 11h2M13 11h2M10 21v-4h4v4"/></svg><b>36</b><span>pokojů</span></div>
+        <div class="fakt"><svg viewBox="0 0 24 24"><path d="M7 3v8M5 3v4a2 2 0 0 0 4 0V3M7 11v10M17 3c-2 0-3 2-3 5s1 4 3 4v9"/></svg><b>130</b><span>míst v jídelně</span></div>
+        <div class="fakt"><svg viewBox="0 0 24 24"><path d="M3 20h18M5 20V9h14v11M8 13h3M13 13h3M3 9l9-5 9 5"/></svg><b>2</b><span>společenské místnosti</span></div>
+      </div>
+      <div class="akce"><a class="odkaz" href="#ubytovani">Ubytování a vybavení</a><a class="btn" href="#kontakt">Poptat pobyt pro skupinu</a></div>
+    </div>
+    <div class="foto-ram">{{ img('zima-svah.jpg', 'Sjezdovka Belvedere hned za hotelem Engadin', sizes='(min-width: 900px) 48vw, 100vw') }}</div>
+  </div>
+</section>
+
+<section class="sekce" style="padding-top:0">
+  <div class="obal" data-odhal>
+    {{ stitek('Naše pobyty') }}
+    <h2 class="h2 stred">Pobyty pro každou skupinu</h2>
+    <p class="perex stred">Každá skupina k nám jede za něčím jiným. Les, sjezdovku, hřiště i jídelnu ale mají všichni hned u dveří.</p>
+    <div class="dlazdice">
+      <a class="dl" href="#kontakt">{{ img('leto-svah.jpg', 'Louka s dětským hřištěm před hotelem v létě', sizes='(min-width: 900px) 25vw, 100vw') }}<div class="dl-in"><h3>Školy v přírodě</h3><p>Hřiště a louka u hotelu, les za domem, koupání v biotopu Žabáky a dvě společenské místnosti na výuku.</p><span class="vic">Dozvědět se více</span></div></a>
+      <a class="dl" href="#kontakt">{{ img('zima-sjezdovka.jpg', 'Zasněžená sjezdovka Belvedere u hotelu', sizes='(min-width: 900px) 25vw, 100vw') }}<div class="dl-in"><h3>Lyžařské výcviky</h3><p>Belvedere a Nad Nádražím na lyžích přímo z hotelu, na Špičák skibusem ze zastávky 500 m od hotelu.</p><span class="vic">Dozvědět se více</span></div></a>
+      <a class="dl" href="#kontakt">{{ img('spolecenska-3.jpg', 'Společenská místnost hotelu Engadin', sizes='(min-width: 900px) 25vw, 100vw') }}<div class="dl-in"><h3>Sportovní soustředění</h3><p>Místo pro celý tým, sauna na regeneraci, stolní tenis a společenské místnosti na porady.</p><span class="vic">Dozvědět se více</span></div></a>
+      <a class="dl" href="#kontakt">{{ img('leto-udoli.jpg', 'Šumavské údolí u Železné Rudy', sizes='(min-width: 900px) 25vw, 100vw') }}<div class="dl-in"><h3>Turistické oddíly</h3><p>Pěší a cyklotrasy Šumavského národního parku, úschovna kol a po túře krb a sauna.</p><span class="vic">Dozvědět se více</span></div></a>
+    </div>
+  </div>
+</section>
+
+<section class="sekce" style="padding-top:0">
+  <div class="obal pribeh" data-odhal>
+    <h2 class="h2">Začněte svůj pobyt na Šumavě</h2>
+    <div>
+      <p>Hledáte ideální místo pro skupinový pobyt? Hotel Engadin nabízí 140 lůžek ve 36 pokojích a výhledy na šumavskou krajinu. Se svou kapacitou je vhodný pro lyžařské výcviky, školy v přírodě, sportovní soustředění i dětské tábory.</p>
+      <p>Šumavský národní park a okolní trasy nabízejí nekonečné možnosti pro pěší turistiku, cykloturistiku a zimní sporty. Klidná atmosféra a pohostinnost našeho týmu Vás budou provázet po celou dobu pobytu.</p>
+      <a class="odkaz" href="#okoli">Co je kolem hotelu</a>
+    </div>
+  </div>
+  <div class="siroka" data-odhal>{{ img('zima-hotel.jpg', 'Hotel Engadin v zimě se zasněženými smrky', sizes='100vw') }}</div>
+  <div class="akce stred"><a class="btn" href="#ceny">Vyberte si svůj pobyt</a></div>
+</section>
+
+<section class="sekce pisek-2" id="ubytovani">
+  <div class="obal" data-odhal>
+    {{ stitek('Ubytování') }}
+    <h2 class="h2 stred">Pokoje a jídelna pro celou skupinu</h2>
+    <div class="zal" role="tablist">
+      <button role="tab" aria-selected="true" aria-controls="z-pokoje">Pokoje</button>
+      <button role="tab" aria-selected="false" aria-controls="z-jidelna">Jídelna</button>
+      <button role="tab" aria-selected="false" aria-controls="z-mistnosti">Společenské místnosti</button>
+    </div>
+    <div class="zal-panel" id="z-pokoje" role="tabpanel">
+      <div class="foto">{{ img('pokoj.jpg', 'Pokoj v hotelu Engadin s výhledem do lesa', sizes='(min-width: 900px) 62vw, 100vw') }}</div>
+      <div class="karta"><h3>Pokoje</h3><p>36 pokojů s kapacitou až 140 lůžek, 28 z nich má vlastní koupelnu. Z oken je vidět les nebo svah, pro děti je v hotelu dětský koutek.</p><a class="odkaz" href="#kontakt">Poptat ubytování</a></div>
+    </div>
+    <div class="zal-panel" id="z-jidelna" role="tabpanel" hidden>
+      <div class="foto">{{ img('jidelna.jpg', 'Jídelna hotelu Engadin s dřevěnými stoly a okny do lesa', sizes='(min-width: 900px) 62vw, 100vw') }}</div>
+      <div class="karta"><h3>Jídelna s krbem</h3><p>Prostorná jídelna s barem pro 130 hostů, s velkými okny do lesa a útulným krbem pro poklidné večery. Polopenze nebo jen snídaně.</p><a class="odkaz" href="#ceny">Ceny se stravou</a></div>
+    </div>
+    <div class="zal-panel" id="z-mistnosti" role="tabpanel" hidden>
+      <div class="foto">{{ img('spolecenska.jpg', 'Společenská místnost se stolky a židlemi', sizes='(min-width: 900px) 62vw, 100vw') }}</div>
+      <div class="karta"><h3>Společenské místnosti</h3><p>Dvě společenské místnosti pro výuku, porady, teorii lyžování nebo večerní program. K tomu stolní tenis, stolní fotbal a šipky.</p><a class="odkaz" href="#kontakt">Poptat pobyt</a></div>
+    </div>
+    <p class="drobne">Check-in od 14 hodin, check-out do 10 hodin. Na příjezdu se můžeme domluvit individuálně.</p>
+  </div>
+</section>
+
+<section class="split">
+  <div class="foto">{{ img('krb.jpg', 'Krb se sedací soupravou v jídelně hotelu Engadin', sizes='(min-width: 900px) 50vw, 100vw') }}</div>
+  <div class="txt" data-odhal>
+    {{ stitek('Odpočinek', 'vlevo') }}
+    <h2 class="h2" style="font-size:clamp(28px,3vw,40px)">Po dni venku do tepla</h2>
+    <p style="margin-top:22px">Po svahu nebo túře se skupina sejde u krbu v jídelně. Dospělí si odpočinou v sauně, děti mají dětský koutek, na večer je stolní tenis, stolní fotbal a šipky.</p>
+    <div class="ikony">
+      <div><svg viewBox="0 0 24 24"><path d="M4 20h16M6 20V10h12v10M9 7c0-2 2-2 2-4M13 7c0-2 2-2 2-4"/></svg>Sauna</div>
+      <div><svg viewBox="0 0 24 24"><path d="M12 21c-4 0-6-3-6-6 0-4 4-6 4-10 3 2 4 5 4 7 1-1 2-2 2-4 2 2 2 5 2 7 0 3-2 6-6 6z"/></svg>Krb</div>
+      <div><svg viewBox="0 0 24 24"><circle cx="9" cy="9" r="6"/><path d="M13.5 13.5L20 20M18 5a1.5 1.5 0 1 0 0 .01"/></svg>Stolní tenis</div>
+      <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>Šipky</div>
+      <div><svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11M9 20v-5h6v5"/></svg>Dětský koutek</div>
+    </div>
+  </div>
+</section>
+
+<section class="sekce pisek-2" id="ceny">
+  <div class="obal" data-odhal>
+    {{ stitek('Ceník') }}
+    <h2 class="h2 stred">Ceny pro skupiny</h2>
+    <p class="perex stred">Ceny jsou za osobu a noc. Čím déle zůstanete, tím je pobyt levnější.</p>
+    <div class="karty">
+      <article class="kc">{{ img('jidelna-okna.jpg', 'Jídelna s okny do lesa', sizes='(min-width: 900px) 32vw, 100vw') }}<div class="kc-in"><small>1–3 noci</small><h3>Krátký pobyt</h3><p class="cena"><b>1 350 Kč</b> s polopenzí</p><p>Výlet třídy, víkendové soustředění nebo zastávka oddílu. Jen se snídaní 1 000 Kč.</p><a class="odkaz" href="#kontakt">Poptat pobyt</a></div></article>
+      <article class="kc">{{ img('zima-sjezdovka.jpg', 'Sjezdovka u hotelu', sizes='(min-width: 900px) 32vw, 100vw') }}<div class="kc-in"><small>4 a více nocí</small><h3>Týden na horách</h3><p class="cena"><b>1 200 Kč</b> s polopenzí</p><p>Škola v přírodě, lyžařský výcvik nebo tábor. Jen se snídaní 850 Kč.</p><a class="odkaz" href="#kontakt">Poptat pobyt</a></div></article>
+      <article class="kc" id="silvestr">{{ img('noc.jpg', 'Hotel Engadin v zimní noci', sizes='(min-width: 900px) 32vw, 100vw') }}<div class="kc-in"><small>26. 12. 2026 – 3. 1. 2027</small><h3>Silvestr na Engadinu</h3><p class="cena"><b>1 350 Kč</b> s polopenzí</p><p>Oslava konce roku na horách, lyžování od hotelu a večer u krbu. Silvestrovský večer 900 Kč, min. 3 noci.</p><a class="odkaz" href="#kontakt">Rezervovat Silvestr</a></div></article>
+    </div>
+    <p class="pozn">Děti do 2,99 let zdarma bez nároku na lůžko · děti do 9 let sleva 40 % · do 15 let sleva 20 % z ubytování i stravování</p>
+  </div>
+</section>
+
+<section class="sekce tmava" id="okoli">
+  {{ img('hvezdy-2.jpg', '', sizes='100vw') }}
+  <div class="obal" data-odhal>
+    {{ stitek('Okolí hotelu') }}
+    <h2 class="h2 stred">Všechno je na dosah</h2>
+    <p class="perex stred">Sjezdovky, biotop i skibus jsou pár kroků od hotelu. Na Velký Javor dojedete za čtvrt hodiny.</p>
+    <div class="mista">
+      <div class="misto"><b>u hotelu</b><h3>Belvedere a Nad Nádražím</h3><p>Lyžařské areály dostupné na lyžích přímo z hotelu.</p></div>
+      <div class="misto"><b>250 m</b><h3>Biotop Žabáky</h3><p>V létě koupání, v zimě bruslení.</p></div>
+      <div class="misto"><b>500 m</b><h3>Zastávka skibusu</h3><p>Skibus do ski areálu Špičák.</p></div>
+      <div class="misto"><b>15 min</b><h3>Velký Javor</h3><p>Lyžování jako v Alpách, 15 minut autem.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sekce">
+  <div class="obal dve" data-odhal>
+    <div><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 9h16M9 4v16"/></svg><h3>Poptávka pro skupinu</h3><p>Napište nám termín, počet dětí a dospělých a jakou stravu chcete. Pošleme nabídku na celý pobyt.</p><a class="btn" href="mailto:{{ site.kontakt.email }}">Poptat pobyt</a></div>
+    <div><svg viewBox="0 0 24 24"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><h3>Jak k nám</h3><p>Engadin Hotel, Železná Ruda 35, 340 04 Železná Ruda. Parkování přímo u hotelu, úschovna kol a lyží.</p><a class="btn btn-ram" href="{{ site.mapa }}" target="_blank" rel="noopener">Otevřít mapu</a></div>
+  </div>
+</section>
+
+<section class="sekce pisek-2" id="galerie">
+  <div class="obal" data-odhal>
+    {{ stitek('Fotogalerie') }}
+    <h2 class="h2 stred">Nahlédněte k nám</h2>
+    <div class="galerie">
+      <a href="#">{{ img('zima-vez.jpg', 'Hotel Engadin v zimě', sizes='20vw') }}</a>
+      <a href="#">{{ img('krb.jpg', 'Krb v jídelně', sizes='20vw') }}</a>
+      <a href="#">{{ img('leto-hotel.jpg', 'Hotel Engadin v létě', sizes='20vw') }}</a>
+      <a href="#">{{ img('koutek.jpg', 'Dětský koutek', sizes='20vw') }}</a>
+      <a href="#">{{ img('zima-cesta-2.jpg', 'Zasněžená cesta u hotelu', sizes='20vw') }}</a>
+    </div>
+    <div class="akce stred"><a class="odkaz" href="#">Celá fotogalerie</a></div>
+  </div>
+</section>
+{% endblock %}

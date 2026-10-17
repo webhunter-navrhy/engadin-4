@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ titulek or site.nazev }}</title>
+<meta name="description" content="{{ popis or site.popis }}">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#a61e22">
+<meta property="og:title" content="{{ titulek or site.nazev }}">
+<meta property="og:description" content="{{ popis or site.popis }}">
+{% if og_url %}<meta property="og:image" content="{{ og_url }}">{% endif %}
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{% block head %}{% endblock %}
+{% if jsonld %}<script type="application/ld+json">{{ jsonld|safe }}</script>{% endif %}
+</head>
+<body>
+<header class="hl">
+  <div class="hl-in">
+    <nav aria-label="Hlavní vlevo"><a href="#skupiny">Pro skupiny</a><a href="#ubytovani">Ubytování</a><a href="#okoli">Okolí</a><a href="#galerie">Fotogalerie</a></nav>
+    <a class="znak" href="{{ url('') }}" aria-label="Engadin Hotel – úvod"><b>ENGADIN</b><small>Hotel · Železná Ruda</small></a>
+    <nav class="vpravo" aria-label="Hlavní vpravo"><a href="#ceny">Ceník</a><a href="#silvestr">Silvestr 2026</a><a href="#kontakt">Kontakt</a><a class="btn" href="#kontakt" style="padding:0 18px;min-height:40px;opacity:1">Poptávka</a></nav>
+    <a class="btn btn-mob" href="#kontakt">Poptávka</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+    <div class="mob-menu">
+      <a href="#skupiny">Pro skupiny</a><a href="#ubytovani">Ubytování</a><a href="#ceny">Ceník</a><a href="#okoli">Okolí</a><a href="#silvestr">Silvestr 2026</a><a href="#galerie">Fotogalerie</a><a href="#kontakt">Kontakt</a>
+      <a class="btn" href="#kontakt">Poptat pobyt pro skupinu</a>
+    </div>
+  </div>
+</header>
+<main>
+{% block obsah %}{% endblock %}
+</main>
+<footer class="pata" id="kontakt">
+  <div class="obal pata-mriz">
+    <div>
+      <p class="jmeno">Engadin<br>Hotel</p>
+      <ul>
+        <li><a href="tel:{{ site.kontakt.telefon|replace(' ', '') }}">{{ site.kontakt.telefon }}</a></li>
+        <li><a href="mailto:{{ site.kontakt.email }}">{{ site.kontakt.email }}</a></li>
+        <li>Železná Ruda 35<br>340 04 Železná Ruda</li>
+      </ul>
+      <p style="margin-top:14px"><small>Check-in od 14:00, check-out do 10:00</small></p>
+    </div>
+    <div>
+      <h4>Poptávky</h4>
+      <ul><li><a href="#kontakt">Poptávka pobytu</a></li><li><a href="#skupiny">Školy v přírodě</a></li><li><a href="#skupiny">Lyžařské výcviky</a></li><li><a href="#silvestr">Silvestr 2026</a></li></ul>
+      <h4 style="margin-top:30px">Užitečné</h4>
+      <ul><li><a href="#ceny">Ceník a storno podmínky</a></li><li><a href="{{ site.mapa }}" target="_blank" rel="noopener">Jak k nám</a></li></ul>
+    </div>
+    <div>
+      <h4>Oblíbené</h4>
+      <ul><li><a href="#okoli">Okolí hotelu</a></li><li><a href="#ubytovani">Ubytování</a></li><li><a href="#galerie">Fotogalerie</a></li></ul>
+    </div>
+    <div>
+      <h4>Součást skupiny</h4>
+      <img class="lippert" src="{{ base }}img/lippert-hotels.png" alt="Lippert Hotels" width="120" height="62">
+      <h4>Naše další hotely</h4>
+      <ul>{% for h in site.skupina %}<li><a href="{{ h.url }}" target="_blank" rel="noopener">{{ h.nazev }}</a><small>{{ h.misto }}</small></li>{% endfor %}</ul>
+    </div>
+  </div>
+  <div class="obal pata-spodek"><span>© 2026 Engadin Hotel</span><span>Návrh webu · fotky z podkladů hotelu</span></div>
+</footer>
+<script src="{{ asset('js/main.js') }}" defer></script>
+</body>
+</html>
