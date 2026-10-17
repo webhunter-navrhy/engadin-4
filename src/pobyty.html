@@ -1,0 +1,61 @@
+{% extends "_base.html" %}
+{% from "_casti.html" import stitek, titulni %}
+{% set titulek = "Pobyty pro skupiny – školy v přírodě, lyžařské výcviky | Engadin Hotel" %}
+{% set popis = "Školy v přírodě, lyžařské výcviky, sportovní soustředění a turistické oddíly v hotelu Engadin v Železné Rudě. 140 lůžek u sjezdovky Belvedere." %}
+{% block obsah %}
+{{ titulni('Pobyty pro skupiny', 'zima-cesta.jpg', 'Zasněžená cesta a smrky u hotelu Engadin') }}
+<section class="sekce">
+  <div class="obal">
+    <p class="uvodni">Hotel Engadin je místo pro větší skupiny. Celá třída, oddíl nebo klub má pokoje, jídelnu i program pod jednou střechou a hned za dveřmi sjezdovku, louku a les. Hotel leží daleko od rušné silnice, takže si děti můžou v klidu hrát i venku.</p>
+
+    <div class="blok" id="skoly-v-prirode" data-odhal>
+      <div class="blok-foto">{{ img('leto-svah.jpg', 'Louka s dětským hřištěm před hotelem Engadin v létě', sizes='(min-width: 900px) 48vw, 100vw') }}</div>
+      <div>
+        {{ stitek('Jaro až podzim', 'vlevo') }}
+        <h2>Školy v přírodě</h2>
+        <p>Výuka venku i uvnitř: louka a dětské hřiště jsou přímo u hotelu, les začíná za domem. Na výuku a večerní program jsou připravené dvě společenské místnosti, jíst se chodí do jídelny pro 130 lidí.</p>
+        <ul class="seznam"><li>dětské hřiště a louka u hotelu</li><li>biotop Žabáky 250 m: v létě koupání</li><li>turistické trasy začínají u hotelu</li><li>2 společenské místnosti a dětský koutek</li></ul>
+        <a class="btn" href="{{ url('poptavka/') }}?pobyt=Škola v přírodě">Poptat školu v přírodě</a>
+      </div>
+    </div>
+
+    <div class="blok otoc" id="lyzarske-vycviky" data-odhal>
+      <div class="blok-foto">{{ img('zima-sjezdovka.jpg', 'Zasněžená sjezdovka Belvedere vedle hotelu Engadin', sizes='(min-width: 900px) 48vw, 100vw') }}</div>
+      <div>
+        {{ stitek('Zima', 'vlevo') }}
+        <h2>Lyžařské výcviky</h2>
+        <p>Lyžařské areály Belvedere a Nad Nádražím jsou dostupné na lyžích přímo z hotelu, takže ráno nikdo nečeká na autobus. Pro náročnější svahy jezdí skibus na Špičák, zastávka je 500 metrů od hotelu.</p>
+        <ul class="seznam"><li>Belvedere a Nad Nádražím na lyžích z hotelu</li><li>skibus na Špičák, zastávka 500 m</li><li>Velký Javor (Großer Arber) 15 minut autem</li><li>úschovna lyží v hotelu</li></ul>
+        <a class="btn" href="{{ url('poptavka/') }}?pobyt=Lyžařský výcvik">Poptat lyžařský výcvik</a>
+      </div>
+    </div>
+
+    <div class="blok" id="sportovni-soustredeni" data-odhal>
+      <div class="blok-foto">{{ img('spolecenska-3.jpg', 'Společenská místnost hotelu Engadin', sizes='(min-width: 900px) 48vw, 100vw') }}</div>
+      <div>
+        {{ stitek('Celoročně', 'vlevo') }}
+        <h2>Sportovní soustředění</h2>
+        <p>Místo pro celý tým, jídlo na čas a klid na regeneraci. Na porady a rozbor tréninku jsou dvě společenské místnosti, po tréninku sauna, na večer stolní tenis, stolní fotbal a šipky.</p>
+        <ul class="seznam"><li>kapacita 140 lůžek ve 36 pokojích</li><li>sauna</li><li>stolní tenis, stolní fotbal, šipky</li><li>úschovna kol a lyží, parkování u hotelu</li></ul>
+        <a class="btn" href="{{ url('poptavka/') }}?pobyt=Sportovní soustředění">Poptat soustředění</a>
+      </div>
+    </div>
+
+    <div class="blok otoc" id="turisticke-oddily" data-odhal>
+      <div class="blok-foto">{{ img('leto-udoli.jpg', 'Letní šumavské údolí u Železné Rudy', sizes='(min-width: 900px) 48vw, 100vw') }}</div>
+      <div>
+        {{ stitek('Celoročně', 'vlevo') }}
+        <h2>Turistické oddíly</h2>
+        <p>Šumavský národní park a okolní trasy nabízejí nekonečné možnosti pro pěší turistiku i cykloturistiku. Kola si necháte v úschovně, po túře čeká krb v jídelně a sauna.</p>
+        <ul class="seznam"><li>pěší a cyklotrasy v okolí hotelu</li><li>úschovna kol</li><li>polopenze, nebo jen snídaně</li><li>check-in od 14:00, příjezd se dá domluvit</li></ul>
+        <a class="btn" href="{{ url('poptavka/') }}?pobyt=Turistický oddíl">Poptat pobyt oddílu</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="cta-pas">
+  <h2 class="h2">Máte termín a počet dětí?</h2>
+  <p>Napište nám, s kým a kdy jedete. Pošleme nabídku na celý pobyt.</p>
+  <a class="btn" href="{{ url('poptavka/') }}">Poptat pobyt</a>
+</section>
+{% endblock %}

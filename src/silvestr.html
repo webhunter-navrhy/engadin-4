@@ -1,0 +1,44 @@
+{% extends "_base.html" %}
+{% from "_casti.html" import stitek, titulni %}
+{% set titulek = "Silvestr 2026 na Šumavě – Engadin Hotel Železná Ruda" %}
+{% set popis = "Silvestr na Engadinu 26. 12. 2026 – 3. 1. 2027: 1 350 Kč za osobu a noc s polopenzí, lyžování od hotelu, jídelna s krbem." %}
+{% block obsah %}
+{{ titulni('Silvestr na Engadinu', 'noc.jpg', 'Hotel Engadin v zimní noci pod hvězdami', '60% 50%') }}
+<section class="sekce">
+  <div class="obal">
+    {{ stitek('26. prosince 2026 – 3. ledna 2027') }}
+    <h2 class="h2 stred">Oslavte konec roku v srdci Šumavy</h2>
+    <p class="uvodni" style="margin-top:22px">Přivítejte rok 2027 tam, kde na Vás čeká klid hor, čerstvý sníh a společnost lidí, na kterých Vám záleží.</p>
+    <div class="blok" data-odhal>
+      <div class="blok-foto">{{ img('krb-vecer.jpg', 'Večer u krbu v hotelu Engadin', sizes='(min-width: 900px) 48vw, 100vw') }}</div>
+      <div>
+        <p>Hotel Engadin leží přímo u ski areálu Belvedere, stranou od hlavní silnice. Ráno Vás přivítá čerstvý sníh za okny, večer krb a teplo uvnitř. Sjezdovky máte doslova za rohem, takže netrávíte čas cestováním.</p>
+        <p>Sejde se tu širší rodina se všemi generacemi, parta kamarádů, co si chce užít Silvestr po svém, i vy dva, kdo hledáte jen klid.</p>
+        <ul class="seznam">
+          <li>lyžování přímo od hotelu, Špičák skibusem</li>
+          <li>Velký Javor (Großer Arber) 15 minut autem</li>
+          <li>bruslení na biotopu Žabáky pár kroků od hotelu</li>
+          <li>jídelna pro 130 hostů s krbem na silvestrovskou večeři</li>
+          <li>dvě společenské místnosti pro vlastní program</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sekce pisek-2">
+  <div class="obal" data-odhal>
+    {{ stitek('Cena') }}
+    <h2 class="h2 stred">1 350 Kč za osobu a noc</h2>
+    <p class="perex stred">za dospělou osobu s polopenzí</p>
+    <table class="tabulka">
+      <tbody>
+        <tr><td>Děti 3–9 let včetně</td><td class="c">−40 %</td></tr>
+        <tr><td>Děti 10–15 let včetně</td><td class="c">−20 %</td></tr>
+        <tr><td>Silvestrovský večer 31. 12. (povinný, platí dětské slevy)</td><td class="c">900 Kč</td></tr>
+      </tbody>
+    </table>
+    <p class="perex stred" style="font-size:14.5px">Zvýhodněné ceny platí při pobytu alespoň na 3 noci. Počet pokojů za zvýhodněnou cenu je omezen, proto doporučujeme rezervaci co nejdříve. Finální cenu Vám vypočítáme podle počtu osob, věku dětí a délky pobytu.</p>
+    <div class="akce stred"><a class="btn" href="{{ url('poptavka/') }}?pobyt=Silvestr 2026">Rezervovat Silvestr</a></div>
+  </div>
+</section>
+{% endblock %}

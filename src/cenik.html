@@ -1,0 +1,52 @@
+{% extends "_base.html" %}
+{% from "_casti.html" import stitek, titulni %}
+{% set titulek = "Ceník a podmínky – od 850 Kč za osobu a noc | Engadin Hotel" %}
+{% set popis = "Ceník hotelu Engadin: polopenze od 1 200 Kč, snídaně od 850 Kč za osobu a noc. Slevy pro děti, seniory a ZTP, storno podmínky." %}
+{% block obsah %}
+{{ titulni('Ceník a podmínky', 'jidelna-2.jpg', 'Jídelna hotelu Engadin', '50% 60%') }}
+<section class="sekce">
+  <div class="obal">
+    <p class="uvodni">Ceny jsou za osobu a noc. Čím déle zůstanete, tím je pobyt levnější. Pro školy a velké skupiny připravíme nabídku na celý pobyt.</p>
+    <div data-odhal style="margin-top:60px">
+      {{ stitek('Ceník') }}
+      <h2 class="h2 stred">Ceny za osobu a noc</h2>
+      <table class="tabulka">
+        <thead><tr><th>Délka pobytu</th><th class="c">Polopenze</th><th class="c">Pouze snídaně</th></tr></thead>
+        <tbody><tr><td>1–3 noci</td><td class="c">1 350 Kč</td><td class="c">1 000 Kč</td></tr><tr><td>4 a více nocí</td><td class="c">1 200 Kč</td><td class="c">850 Kč</td></tr></tbody>
+      </table>
+    </div>
+    <div data-odhal style="margin-top:80px">
+      {{ stitek('Slevy') }}
+      <h2 class="h2 stred">Slevy</h2>
+      <ul class="vybaveni dva">
+        <li>Dítě do 2,99 let včetně: zdarma bez nároku na lůžko</li><li>Dítě do 9 let včetně: sleva 40 % z ubytování i stravování</li><li>Dítě do 15 let včetně: sleva 20 % z ubytování i stravování</li>
+        <li>Držitelé průkazu ZTP a ZTP/P: sleva 25 % z ubytování</li><li>Senioři nad 65 let: sleva 20 % z ubytování</li><li>Věrní hosté: sleva až 20 %</li>
+      </ul>
+      <p class="drobne">Slevy se nevztahují na silvestrovské pobyty a nelze je kombinovat (platí vždy nejvyšší sleva).</p>
+    </div>
+  </div>
+</section>
+<section class="sekce pisek-2" id="podminky">
+  <div class="obal" data-odhal>
+    {{ stitek('Podmínky') }}
+    <h2 class="h2 stred">Storno podmínky</h2>
+    <table class="tabulka">
+      <thead><tr><th>Zrušení pobytu</th><th class="c">Storno poplatek</th></tr></thead>
+      <tbody>
+        <tr><td>více než 101 dní před příjezdem</td><td class="c">20 %</td></tr>
+        <tr><td>61–100 dní před příjezdem</td><td class="c">40 %</td></tr>
+        <tr><td>31–60 dní před příjezdem</td><td class="c">60 %</td></tr>
+        <tr><td>5–30 dní před příjezdem</td><td class="c">80 %</td></tr>
+        <tr><td>méně než 5 dní před příjezdem</td><td class="c">100 %</td></tr>
+      </tbody>
+    </table>
+    <p class="perex stred" style="font-size:14.5px">Storno se počítá z celkové ceny pobytu. Rezervace je potvrzena po úhradě zálohové faktury. U slevových poukazů a pobytových balíčků není možné rezervovaný termín zrušit, storno je vždy 100 %.</p>
+    <p class="drobne">Check-in od 14 hodin, check-out do 10 hodin. Na příjezdu se můžeme domluvit individuálně.</p>
+  </div>
+</section>
+<section class="cta-pas">
+  <h2 class="h2">Spočítáme Vám celý pobyt</h2>
+  <p>Napište počet dětí a dospělých, věk dětí a termín. Pošleme nabídku i s dětskými slevami.</p>
+  <a class="btn" href="{{ url('poptavka/') }}">Poptat pobyt</a>
+</section>
+{% endblock %}

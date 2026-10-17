@@ -1,0 +1,53 @@
+{% extends "_base.html" %}
+{% from "_casti.html" import stitek, titulni %}
+{% set titulek = "Okolí hotelu – sjezdovky, biotop Žabáky, Šumava | Engadin Hotel" %}
+{% set popis = "Ski areály Belvedere a Nad Nádražím na lyžích z hotelu, Špičák skibusem, biotop Žabáky 250 m, Velký Javor 15 minut autem." %}
+{% block obsah %}
+{{ titulni('Okolí hotelu', 'zima-svah.jpg', 'Sjezdovka Belvedere za hotelem Engadin', '50% 40%') }}
+<section class="sekce">
+  <div class="obal">
+    <p class="uvodni">Hotel Engadin leží v Železné Rudě přímo u ski areálu Belvedere. Je to výchozí bod pro turistické trasy, cykloturistiku i zimní sporty v Šumavském národním parku.</p>
+
+    <div class="blok" data-odhal>
+      <div class="blok-foto">{{ img('zima-svah-2.jpg', 'Sjezdovka Belvedere a hotel Engadin pod sněhem', sizes='(min-width: 900px) 48vw, 100vw') }}</div>
+      <div>
+        {{ stitek('Zima', 'vlevo') }}
+        <h2>Lyže od dveří hotelu</h2>
+        <p>Lyžařské areály Belvedere a Nad Nádražím jsou dostupné na lyžích přímo z hotelu. Pro lyžování ve ski areálu Špičák můžete využít skibus, zastávka je 500 metrů od hotelu. Lyžování jako v Alpách nabízí Velký Javor (Großer Arber), 15 minut cesty autem.</p>
+        <ul class="seznam"><li>Belvedere a Nad Nádražím: na lyžích z hotelu</li><li>Špičák: skibusem, zastávka 500 m</li><li>Velký Javor: 15 minut autem</li><li>bruslení na biotopu Žabáky</li></ul>
+      </div>
+    </div>
+
+    <div class="blok otoc" data-odhal>
+      <div class="blok-foto">{{ img('leto-sjezdovka.jpg', 'Letní svah a les u hotelu Engadin', sizes='(min-width: 900px) 48vw, 100vw') }}</div>
+      <div>
+        {{ stitek('Léto', 'vlevo') }}
+        <h2>Les, louka a biotop</h2>
+        <p>V létě je svah za hotelem plný zeleně a les začíná hned za domem. Nedaleký biotop Žabáky, 250 metrů od hotelu, nabízí koupání. Šumavský národní park láká na pěší výlety i cyklotrasy.</p>
+        <ul class="seznam"><li>biotop Žabáky 250 m: koupání</li><li>pěší turistika v Šumavském národním parku</li><li>cykloturistika, úschovna kol v hotelu</li><li>dětské hřiště u hotelu</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sekce tmava">
+  {{ img('hvezdy-2.jpg', '', sizes='100vw') }}
+  <div class="obal" data-odhal>
+    {{ stitek('Vzdálenosti') }}
+    <h2 class="h2 stred">Všechno je na dosah</h2>
+    <div class="mista">
+      <div class="misto"><b>u hotelu</b><h3>Belvedere a Nad Nádražím</h3><p>Lyžařské areály dostupné na lyžích přímo z hotelu.</p></div>
+      <div class="misto"><b>250 m</b><h3>Biotop Žabáky</h3><p>V létě koupání, v zimě bruslení.</p></div>
+      <div class="misto"><b>500 m</b><h3>Zastávka skibusu</h3><p>Skibus do ski areálu Špičák.</p></div>
+      <div class="misto"><b>15 min</b><h3>Velký Javor</h3><p>Lyžování jako v Alpách, 15 minut autem.</p></div>
+    </div>
+  </div>
+</section>
+<section class="sekce" id="jak-k-nam">
+  <div class="obal" data-odhal>
+    {{ stitek('Jak k nám') }}
+    <h2 class="h2 stred">Jak k nám</h2>
+    <p class="perex stred">Engadin Hotel, Železná Ruda 35, 340 04 Železná Ruda, okres Klatovy, Plzeňský kraj. Parkování je přímo u hotelu.</p>
+    <div class="akce stred"><a class="btn" href="{{ site.mapa }}" target="_blank" rel="noopener">Google Maps</a><a class="btn btn-ram" href="{{ site.waze }}" target="_blank" rel="noopener">Waze</a></div>
+  </div>
+</section>
+{% endblock %}

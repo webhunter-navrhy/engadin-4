@@ -1,0 +1,23 @@
+{% extends "_base.html" %}
+{% from "_casti.html" import stitek, titulni %}
+{% set titulek = "Fotogalerie | Engadin Hotel Železná Ruda" %}
+{% set popis = "Fotky hotelu Engadin v Železné Rudě: hotel v zimě i v létě, jídelna s krbem, pokoje, společenské místnosti a okolí." %}
+{% set fotky = [
+  ('zima-svah.jpg','Hotel Engadin a sjezdovka Belvedere v zimě'),('zima-hotel.jpg','Hotel Engadin v zimě'),('zima-vez.jpg','Věž hotelu Engadin pod sněhem'),('zima-cesta-2.jpg','Zasněžená cesta u hotelu'),
+  ('noc.jpg','Hotel Engadin v noci pod hvězdami'),('hvezdy.jpg','Hvězdná obloha nad smrky u hotelu'),('leto-hotel.jpg','Hotel Engadin v létě'),('leto-svah.jpg','Louka s hřištěm před hotelem'),
+  ('leto-vstup.jpg','Vstup do hotelu Engadin'),('leto-udoli.jpg','Šumavské údolí u Železné Rudy'),('jidelna.jpg','Jídelna s okny do lesa'),('jidelna-okna.jpg','Jídelna hotelu Engadin'),
+  ('krb.jpg','Krb v jídelně'),('krb-vecer.jpg','Večer u krbu'),('spolecenska.jpg','Společenská místnost'),('spolecenska-2.jpg','Druhá společenská místnost'),
+  ('pokoj.jpg','Pokoj s výhledem do lesa'),('pokoj-2.jpg','Pokoj s výhledem na svah'),('koupelna.jpg','Koupelna'),('koutek.jpg','Dětský koutek')] %}
+{% block obsah %}
+{{ titulni('Fotogalerie', 'zima-cesta.jpg', 'Zasněžená cesta a smrky u hotelu Engadin') }}
+<section class="sekce">
+  <div class="obal">
+    {{ stitek('Nahlédněte k nám') }}
+    <h2 class="h2 stred">Hotel, jídelna, pokoje i okolí</h2>
+    <div class="galerie-plna">
+      {% for f, a in fotky %}<button type="button" data-velka="{{ img_url(f, 1920) }}" aria-label="Zvětšit: {{ a }}">{{ img(f, a, sizes='(min-width: 900px) 25vw, 50vw') }}</button>{% endfor %}
+    </div>
+  </div>
+</section>
+<dialog class="lightbox" aria-label="Zvětšená fotka"><button type="button" aria-label="Zavřít">×</button><img src="" alt=""></dialog>
+{% endblock %}

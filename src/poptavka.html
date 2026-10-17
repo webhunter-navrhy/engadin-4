@@ -1,0 +1,36 @@
+{% extends "_base.html" %}
+{% from "_casti.html" import stitek, titulni %}
+{% set titulek = "Poptávka pobytu a kontakt | Engadin Hotel Železná Ruda" %}
+{% set popis = "Poptejte pobyt pro školu, lyžařský výcvik, sportovní klub nebo turistický oddíl v hotelu Engadin. Železná Ruda 35, info@engadinhotel.cz." %}
+{% block obsah %}
+{{ titulni('Poptávka pobytu', 'zima-hotel.jpg', 'Hotel Engadin v zimě') }}
+<section class="sekce">
+  <div class="obal">
+    <p class="uvodni">Ať plánujete školu v přírodě, lyžařský výcvik, soustředění nebo výlet oddílu, rádi Vám připravíme nabídku na celý pobyt. Stačí vyplnit pár údajů níže a ozveme se Vám co nejdříve.</p>
+    <form class="formular" method="post" data-endpoint="" data-demo="1">
+      <label class="cela">Typ pobytu
+        <select name="skupina"><option>Škola v přírodě</option><option>Lyžařský výcvik</option><option>Sportovní soustředění</option><option>Turistický oddíl</option><option>Silvestr 2026</option><option>Jiný pobyt</option></select>
+      </label>
+      <label class="cela">Jméno a příjmení *<input name="jmeno" autocomplete="name" required></label>
+      <label>E-mail *<input type="email" name="email" autocomplete="email" required></label>
+      <label>Telefon *<input type="tel" name="telefon" autocomplete="tel" required></label>
+      <label class="cela">Škola, klub nebo oddíl<input name="organizace" autocomplete="organization"></label>
+      <label>Datum příjezdu<input type="date" name="prijezd"></label>
+      <label>Datum odjezdu<input type="date" name="odjezd"></label>
+      <label>Počet dětí<input type="number" name="deti" min="0" inputmode="numeric"></label>
+      <label>Počet dospělých<input type="number" name="dospeli" min="0" inputmode="numeric"></label>
+      <label class="cela">Strava<select name="strava"><option>Polopenze</option><option>Pouze snídaně</option><option>Domluvíme se</option></select></label>
+      <label class="cela">Doplňující informace<textarea name="zprava" placeholder="Věk dětí, program, příjezd autobusem, strava pro alergiky…"></textarea></label>
+      <label class="cela souhlas"><input type="checkbox" name="souhlas" required> Souhlasím se zpracováním osobních údajů dle GDPR za účelem vyřízení poptávky. *</label>
+      <div class="past" aria-hidden="true"><label>Nevyplňovat <input name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+      <button type="submit" class="btn">Odeslat poptávku</button>
+      <p class="formular-stav" role="status" aria-live="polite"></p>
+    </form>
+    <div class="kontakt-info" id="kontakt-info">
+      <div><svg viewBox="0 0 24 24"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><h3>Adresa</h3><p>Engadin Hotel<br>Železná Ruda 35<br>340 04 Železná Ruda</p></div>
+      <div><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4zM4 6l8 7 8-7"/></svg><h3>Kontakt</h3><p><a href="mailto:{{ site.kontakt.email }}">{{ site.kontakt.email }}</a><br><a href="tel:{{ site.kontakt.telefon|replace(' ', '') }}">{{ site.kontakt.telefon }}</a></p></div>
+      <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><h3>Check-in / out</h3><p>Check-in od 14:00<br>Check-out do 10:00<br>Příjezd se dá domluvit</p></div>
+    </div>
+  </div>
+</section>
+{% endblock %}

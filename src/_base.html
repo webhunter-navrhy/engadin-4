@@ -10,8 +10,7 @@
 <meta property="og:title" content="{{ titulek or site.nazev }}">
 <meta property="og:description" content="{{ popis or site.popis }}">
 {% if og_url %}<meta property="og:image" content="{{ og_url }}">{% endif %}
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('css/fonty.css') }}">
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 {% block head %}{% endblock %}
 {% if jsonld %}<script type="application/ld+json">{{ jsonld|safe }}</script>{% endif %}
@@ -19,21 +18,21 @@
 <body>
 <header class="hl">
   <div class="hl-in">
-    <nav aria-label="Hlavní vlevo"><a href="#skupiny">Pro skupiny</a><a href="#ubytovani">Ubytování</a><a href="#okoli">Okolí</a><a href="#galerie">Fotogalerie</a></nav>
+    <nav aria-label="Hlavní vlevo"><a href="{{ url('pobyty/') }}">Pro skupiny</a><a href="{{ url('ubytovani/') }}">Ubytování</a><a href="{{ url('okoli/') }}">Okolí</a><a href="{{ url('fotogalerie/') }}">Fotogalerie</a></nav>
     <a class="znak" href="{{ url('') }}" aria-label="Engadin Hotel – úvod"><b>ENGADIN</b><small>Hotel · Železná Ruda</small></a>
-    <nav class="vpravo" aria-label="Hlavní vpravo"><a href="#ceny">Ceník</a><a href="#silvestr">Silvestr 2026</a><a href="#kontakt">Kontakt</a><a class="btn" href="#kontakt" style="padding:0 18px;min-height:40px;opacity:1">Poptávka</a></nav>
-    <a class="btn btn-mob" href="#kontakt">Poptávka</a>
+    <nav class="vpravo" aria-label="Hlavní vpravo"><a href="{{ url('cenik/') }}">Ceník</a><a href="{{ url('silvestr/') }}">Silvestr 2026</a><a href="{{ url('poptavka/') }}#kontakt-info">Kontakt</a><a class="btn" href="{{ url('poptavka/') }}" style="padding:0 18px;min-height:40px;opacity:1">Poptávka</a></nav>
+    <a class="btn btn-mob" href="{{ url('poptavka/') }}">Poptávka</a>
     <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
     <div class="mob-menu">
-      <a href="#skupiny">Pro skupiny</a><a href="#ubytovani">Ubytování</a><a href="#ceny">Ceník</a><a href="#okoli">Okolí</a><a href="#silvestr">Silvestr 2026</a><a href="#galerie">Fotogalerie</a><a href="#kontakt">Kontakt</a>
-      <a class="btn" href="#kontakt">Poptat pobyt pro skupinu</a>
+      <a href="{{ url('pobyty/') }}">Pro skupiny</a><a href="{{ url('ubytovani/') }}">Ubytování</a><a href="{{ url('cenik/') }}">Ceník</a><a href="{{ url('okoli/') }}">Okolí</a><a href="{{ url('silvestr/') }}">Silvestr 2026</a><a href="{{ url('fotogalerie/') }}">Fotogalerie</a><a href="{{ url('poptavka/') }}#kontakt-info">Kontakt</a>
+      <a class="btn" href="{{ url('poptavka/') }}">Poptat pobyt pro skupinu</a>
     </div>
   </div>
 </header>
 <main>
 {% block obsah %}{% endblock %}
 </main>
-<footer class="pata" id="kontakt">
+<footer class="pata">
   <div class="obal pata-mriz">
     <div>
       <p class="jmeno">Engadin<br>Hotel</p>
@@ -46,13 +45,13 @@
     </div>
     <div>
       <h4>Poptávky</h4>
-      <ul><li><a href="#kontakt">Poptávka pobytu</a></li><li><a href="#skupiny">Školy v přírodě</a></li><li><a href="#skupiny">Lyžařské výcviky</a></li><li><a href="#silvestr">Silvestr 2026</a></li></ul>
+      <ul><li><a href="{{ url('poptavka/') }}">Poptávka pobytu</a></li><li><a href="{{ url('pobyty/') }}#skoly-v-prirode">Školy v přírodě</a></li><li><a href="{{ url('pobyty/') }}#lyzarske-vycviky">Lyžařské výcviky</a></li><li><a href="{{ url('silvestr/') }}">Silvestr 2026</a></li></ul>
       <h4 style="margin-top:30px">Užitečné</h4>
-      <ul><li><a href="#ceny">Ceník a storno podmínky</a></li><li><a href="{{ site.mapa }}" target="_blank" rel="noopener">Jak k nám</a></li></ul>
+      <ul><li><a href="{{ url('cenik/') }}#podminky">Ceník a storno podmínky</a></li><li><a href="{{ url('okoli/') }}#jak-k-nam">Jak k nám</a></li></ul>
     </div>
     <div>
       <h4>Oblíbené</h4>
-      <ul><li><a href="#okoli">Okolí hotelu</a></li><li><a href="#ubytovani">Ubytování</a></li><li><a href="#galerie">Fotogalerie</a></li></ul>
+      <ul><li><a href="{{ url('okoli/') }}">Okolí hotelu</a></li><li><a href="{{ url('ubytovani/') }}">Ubytování</a></li><li><a href="{{ url('fotogalerie/') }}">Fotogalerie</a></li></ul>
     </div>
     <div>
       <h4>Součást skupiny</h4>
