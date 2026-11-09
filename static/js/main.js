@@ -52,3 +52,10 @@ document.querySelectorAll('form.formular').forEach(function (f) {
     stav.textContent = 'Ukázka formuláře: v návrhu se nic neodesílá. Po spuštění webu přijde poptávka na info@engadinhotel.cz.';
   });
 });
+
+(function(){var p=document.getElementById('popup');if(!p)return;
+var klic='engadin-popup',videl=false;try{videl=sessionStorage.getItem(klic)}catch(e){}
+function zavrit(){p.hidden=true;try{sessionStorage.setItem(klic,'1')}catch(e){}}
+p.addEventListener('click',function(e){if(e.target===p||e.target.hasAttribute('data-popup-zavrit'))zavrit()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!p.hidden)zavrit()});
+if(!videl)setTimeout(function(){p.hidden=false},2500);})();
