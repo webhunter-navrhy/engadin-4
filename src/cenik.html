@@ -6,67 +6,49 @@
 {{ titulni('Ceník a podmínky', 'jidelna-2.jpg', 'Jídelna hotelu Engadin', '50% 60%') }}
 <section class="sekce">
   <div class="obal">
-    <p class="uvodni">Ceník 2027. Ceny jsou v Kč vč. DPH za osobu a noc, není-li uvedeno jinak. Čím déle zůstanete, tím je pobyt levnější. Pro školy a velké skupiny připravíme nabídku na celý pobyt.</p>
-    <div data-odhal style="margin-top:60px">
+    <p class="uvodni">Ceník skupinových pobytů 2027. Ceny jsou v Kč vč. DPH za osobu a noc, není-li uvedeno jinak. Čím déle zůstanete, tím je pobyt levnější. Pro školy a velké skupiny připravíme nabídku na celý pobyt. Ceník pro jednotlivce a firmy najdete v části <a href="{{ url('cenik-individualni/') }}">Individuální pobyty</a>.</p>
+    <div data-odhal id="skoly" style="margin-top:60px">
       {{ stitek('Školy') }}
       <h2 class="h2 stred">Škola v přírodě</h2>
       <table class="tabulka"><thead><tr><th>Kategorie</th><th class="c">Cena / osoba / noc</th></tr></thead><tbody><tr><td>Žáci 1. stupeň</td><td class="c">830 Kč</td></tr><tr><td>Žáci 2. stupeň</td><td class="c">860 Kč</td></tr><tr><td>Doprovod</td><td class="c">910 Kč</td></tr></tbody></table><p class="drobne">Cena je uvedena vč. plné penze (strava 5× denně) a pitného režimu; na 20 platících žáků 1 pedagog zdarma.</p>
     </div>
-    <div data-odhal style="margin-top:80px">
+    <div data-odhal id="vycvik" style="margin-top:80px">
       {{ stitek('Výcvik') }}
       <h2 class="h2 stred">Lyžařský výcvikový kurz</h2>
       <table class="tabulka"><thead><tr><th>Kategorie</th><th class="c">Cena / osoba / noc</th></tr></thead><tbody><tr><td>Žáci 1. stupeň</td><td class="c">890 Kč</td></tr><tr><td>Žáci 2. stupeň</td><td class="c">920 Kč</td></tr><tr><td>Doprovod</td><td class="c">970 Kč</td></tr></tbody></table><p class="drobne">Cena je uvedena vč. plné penze (strava 5× denně) a pitného režimu; na 20 platících žáků 1 pedagog zdarma.</p>
     </div>
-    <div data-odhal style="margin-top:80px">
+    <div data-odhal id="stp" style="margin-top:80px">
       {{ stitek('Skupiny') }}
-      <h2 class="h2 stred">Skupinové pobyty STP (20+1)</h2>
+      <h2 class="h2 stred">Skupinové pobyty STP</h2>
       <table class="tabulka"><thead><tr><th>Období</th><th class="c">Polopenze – jednotné jídlo</th><th class="c">Plná penze – jednotné jídlo</th><th class="c">Polopenze – bufet (2 jídla)</th><th class="c">Plná penze – oběd jednotné jídlo, večeře bufet</th></tr></thead><tbody><tr><td>celoročně</td><td class="c">1 030 Kč</td><td class="c">1 200 Kč</td><td class="c">1 220 Kč</td><td class="c">1 340 Kč</td></tr></tbody></table><p class="drobne">Na 20 platících osob 1 osoba zdarma.</p>
     </div>
-    <div data-odhal style="margin-top:80px">
+    <div data-odhal id="domovy" style="margin-top:80px">
       {{ stitek('Dětské domovy') }}
       <h2 class="h2 stred">Dětské domovy</h2>
       <table class="tabulka"><thead><tr><th>Kategorie</th><th class="c">Cena / osoba / noc</th></tr></thead><tbody><tr><td>Děti – 1. stupeň ZŠ</td><td class="c">660 Kč</td></tr><tr><td>Děti – 2. stupeň ZŠ</td><td class="c">690 Kč</td></tr><tr><td>Doprovod</td><td class="c">730 Kč</td></tr></tbody></table><p class="drobne">Sleva 20 %, platí do 31. 12. 2027. Cena je uvedena vč. plné penze (strava 5× denně) a pitného režimu.</p>
     </div>
-    <div data-odhal style="margin-top:80px">
+    <div data-odhal id="program" style="margin-top:80px">
       {{ stitek('Program') }}
       <h2 class="h2 stred">Program k výběru</h2>
       <table class="tabulka"><thead><tr><th>Program</th><th class="c">Cena</th><th class="c">Jednotka</th></tr></thead><tbody><tr><td>Prohlídka ITC a večerní kvíz znalostí</td><td class="c">zdarma</td><td class="c"></td></tr><tr><td>Výlet na koloběžkách (3 hod, 2 trasy, vč. helmy)</td><td class="c">300 Kč</td><td class="c">osoba</td></tr><tr><td>Ping-pongový turnaj (mokrá varianta)</td><td class="c">1 000 Kč</td><td class="c">skupina</td></tr><tr><td>Turistický výlet po Šumavě s výkladem o přírodě</td><td class="c">1 000 Kč</td><td class="c">skupina</td></tr><tr><td>Střelecké odpoledne (3 hod, luk, prak, pistolová kuše)</td><td class="c">3 500 Kč</td><td class="c">skupina</td></tr><tr><td>Sportovní den (malá kopaná + střelecké odpoledne)</td><td class="c">6 000 Kč</td><td class="c">skupina</td></tr></tbody></table>
-    </div>
-    <div data-odhal style="margin-top:80px">
-      {{ stitek('Individuální hosté') }}
-      <h2 class="h2 stred">Individuální hosté a firmy</h2>
-      <table class="tabulka">
-        <thead><tr><th>Délka pobytu</th><th class="c">Polopenze</th><th class="c">Pouze snídaně</th></tr></thead>
-        <tbody><tr><td>1–3 noci</td><td class="c">1 350 Kč</td><td class="c">1 000 Kč</td></tr><tr><td>4 a více nocí</td><td class="c">1 200 Kč</td><td class="c">850 Kč</td></tr></tbody>
-      </table>
-    </div>
-    <div data-odhal style="margin-top:80px">
-      {{ stitek('Slevy') }}
-      <h2 class="h2 stred">Slevy</h2>
-      <ul class="vybaveni dva">
-        <li>Dítě do 2,99 let včetně: zdarma bez nároku na lůžko</li><li>Dítě do 9 let včetně: sleva 40 % z ubytování i stravování</li><li>Dítě do 15 let včetně: sleva 20 % z ubytování i stravování</li>
-        <li>Držitelé průkazu ZTP a ZTP/P: sleva 25 % z ubytování</li><li>Senioři nad 65 let: sleva 20 % z ubytování</li><li>Věrní hosté: sleva až 20 %</li>
-      </ul>
-      <p class="drobne">Slevy se nevztahují na silvestrovské pobyty a nelze je kombinovat (platí vždy nejvyšší sleva).</p>
     </div>
   </div>
 </section>
 <section class="sekce pisek-2" id="podminky">
   <div class="obal" data-odhal>
     {{ stitek('Podmínky') }}
-    <h2 class="h2 stred">Storno podmínky</h2>
+    <h2 class="h2 stred">Program k výběru a storno podmínky</h2>
+    <p class="perex stred" style="font-size:14.5px">Storno podmínky skupinových pobytů jsou součástí smluv.</p>
+    <p class="perex stred" style="font-size:14.5px">V případě snížení počtu osob o méně než 10 % nebude storno účtováno. V případě výraznějšího poklesu účastníků/hostů v rámci skupiny bude storno řešeno individuálně v závislosti na rozsahu a též době zbývající do termínu nástupu od oznámení poklesu počtu osob. Obecně jsou uvažovány následující storno podmínky ve vazbě na termín oznámení změny:</p>
     <table class="tabulka">
-      <thead><tr><th>Zrušení pobytu</th><th class="c">Storno poplatek</th></tr></thead>
+      <thead><tr><th>Termín oznámení změny</th><th class="c">Vlastním rozhodnutím skupiny</th><th class="c">Nařízením / vyšší moc</th></tr></thead>
       <tbody>
-        <tr><td>více než 101 dní před příjezdem</td><td class="c">20 %</td></tr>
-        <tr><td>61–100 dní před příjezdem</td><td class="c">40 %</td></tr>
-        <tr><td>31–60 dní před příjezdem</td><td class="c">60 %</td></tr>
-        <tr><td>5–30 dní před příjezdem</td><td class="c">80 %</td></tr>
-        <tr><td>méně než 5 dní před příjezdem</td><td class="c">100 %</td></tr>
+        <tr><td>60–30 dnů před příjezdem</td><td class="c">15 %</td><td class="c">5 %</td></tr>
+        <tr><td>29–15 dnů před příjezdem</td><td class="c">30 %</td><td class="c">10 %</td></tr>
+        <tr><td>14–4 dny před příjezdem</td><td class="c">50 %</td><td class="c">15 %</td></tr>
+        <tr><td>3–0 dnů před příjezdem</td><td class="c">90–100 %</td><td class="c">20 %</td></tr>
       </tbody>
     </table>
-    <p class="perex stred" style="font-size:14.5px">Storno se počítá z celkové ceny pobytu. Rezervace je potvrzena po úhradě zálohové faktury. U slevových poukazů a pobytových balíčků není možné rezervovaný termín zrušit, storno je vždy 100 %.</p>
-    <p class="drobne">Check-in od 14 hodin, check-out do 10 hodin. Na příjezdu se můžeme domluvit individuálně.</p>
   </div>
 </section>
 <section class="cta-pas">

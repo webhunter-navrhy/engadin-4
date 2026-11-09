@@ -300,3 +300,12 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;color:var(--tma);margin:0}
 .popup-okno h2{font:700 1.7rem/1.2 var(--serif);text-transform:uppercase;margin:.3em 0 .6em;color:var(--tma)}
 .popup-zavrit{position:absolute;top:8px;right:12px;border:0;background:none;font-size:2rem;line-height:1;cursor:pointer;color:var(--tma);padding:6px 10px}
 .popup-druhe{margin-left:14px;white-space:nowrap}
+
+.rozbal{position:relative}
+.rozbal-m{position:absolute;right:0;top:100%;min-width:260px;background:var(--pisek);color:var(--tma);box-shadow:0 12px 36px rgba(0,0,0,.22);border-top:3px solid var(--akcent);padding:10px 0;display:none;flex-direction:column;gap:0;text-align:left}
+.rozbal:hover .rozbal-m,.rozbal:focus-within .rozbal-m{display:flex}
+.hl .rozbal-m a{color:var(--tma);padding:8px 20px;opacity:1;letter-spacing:.06em}
+.hl .rozbal-m a.skup{font-weight:700;margin-top:6px}
+.hl .rozbal-m a.pod{padding-left:34px;font-size:11.5px;text-transform:none;letter-spacing:.02em}
+.hl .rozbal-m a:hover{color:var(--akcent);background:rgba(0,0,0,.04)}
+.rozbal-t::after{content:" ▾";font-size:.8em}

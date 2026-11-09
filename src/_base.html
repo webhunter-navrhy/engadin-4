@@ -20,11 +20,16 @@
   <div class="hl-in">
     <nav aria-label="Hlavní vlevo"><a href="{{ url('pobyty/') }}">Pro skupiny</a><a href="{{ url('ubytovani/') }}">Ubytování</a><a href="{{ url('okoli/') }}">Okolí</a><a href="{{ url('fotogalerie/') }}">Fotogalerie</a></nav>
     <a class="znak" href="{{ url('') }}" aria-label="Engadin Hotel – úvod"><b>ENGADIN</b><small>Hotel · Železná Ruda</small></a>
-    <nav class="vpravo" aria-label="Hlavní vpravo"><a href="{{ url('cenik/') }}">Ceník</a><a href="{{ url('silvestr/') }}">Silvestr 2026</a><a href="{{ url('poptavka/') }}#kontakt-info">Kontakt</a><a class="btn" href="{{ url('poptavka/') }}" style="padding:0 18px;min-height:40px;opacity:1">Poptávka</a></nav>
+    <nav class="vpravo" aria-label="Hlavní vpravo"><div class="rozbal"><a href="{{ url('cenik/') }}" class="rozbal-t" aria-haspopup="true">Ceník</a><div class="rozbal-m">
+      <a class="skup" href="{{ url('cenik/') }}">Skupinové pobyty</a>
+      <a class="pod" href="{{ url('cenik/') }}#skoly">Školy v přírodě</a><a class="pod" href="{{ url('cenik/') }}#vycvik">Lyžařské výcvikové kurzy</a><a class="pod" href="{{ url('cenik/') }}#stp">Skupinové pobyty STP</a><a class="pod" href="{{ url('cenik/') }}#domovy">Dětské domovy</a><a class="pod" href="{{ url('cenik/') }}#program">Program k výběru</a><a class="pod" href="{{ url('cenik/') }}#podminky">Storno podmínky</a>
+      <a class="skup" href="{{ url('cenik-individualni/') }}">Individuální pobyty</a>
+      <a class="pod" href="{{ url('cenik-individualni/') }}#slevy">Slevy</a><a class="pod" href="{{ url('cenik-individualni/') }}#podminky">Storno podmínky</a>
+    </div></div><a href="{{ url('silvestr/') }}">Silvestr 2026</a><a href="{{ url('poptavka/') }}#kontakt-info">Kontakt</a><a class="btn" href="{{ url('poptavka/') }}" style="padding:0 18px;min-height:40px;opacity:1">Poptávka</a></nav>
     <a class="btn btn-mob" href="{{ url('poptavka/') }}">Poptávka</a>
     <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
     <div class="mob-menu">
-      <a href="{{ url('pobyty/') }}">Pro skupiny</a><a href="{{ url('ubytovani/') }}">Ubytování</a><a href="{{ url('cenik/') }}">Ceník</a><a href="{{ url('okoli/') }}">Okolí</a><a href="{{ url('silvestr/') }}">Silvestr 2026</a><a href="{{ url('fotogalerie/') }}">Fotogalerie</a><a href="{{ url('poptavka/') }}#kontakt-info">Kontakt</a>
+      <a href="{{ url('pobyty/') }}">Pro skupiny</a><a href="{{ url('ubytovani/') }}">Ubytování</a><a href="{{ url('cenik/') }}">Ceník – skupinové pobyty</a><a href="{{ url('cenik-individualni/') }}">Ceník – individuální pobyty</a><a href="{{ url('okoli/') }}">Okolí</a><a href="{{ url('silvestr/') }}">Silvestr 2026</a><a href="{{ url('fotogalerie/') }}">Fotogalerie</a><a href="{{ url('poptavka/') }}#kontakt-info">Kontakt</a>
       <a class="btn" href="{{ url('poptavka/') }}">Poptat pobyt pro skupinu</a>
     </div>
   </div>
@@ -47,7 +52,7 @@
       <h4>Poptávky</h4>
       <ul><li><a href="{{ url('poptavka/') }}">Poptávka pobytu</a></li><li><a href="{{ url('pobyty/') }}#skoly-v-prirode">Školy v přírodě</a></li><li><a href="{{ url('pobyty/') }}#lyzarske-vycviky">Lyžařské výcviky</a></li><li><a href="{{ url('silvestr/') }}">Silvestr 2026</a></li></ul>
       <h4 style="margin-top:30px">Užitečné</h4>
-      <ul><li><a href="{{ url('cenik/') }}#podminky">Ceník a storno podmínky</a></li><li><a href="{{ url('okoli/') }}#jak-k-nam">Jak k nám</a></li></ul>
+      <ul><li><a href="{{ url('cenik/') }}">Ceník skupinových pobytů</a></li><li><a href="{{ url('cenik-individualni/') }}">Ceník individuálních pobytů</a></li><li><a href="{{ url('okoli/') }}#jak-k-nam">Jak k nám</a></li></ul>
     </div>
     <div>
       <h4>Oblíbené</h4>
@@ -65,10 +70,10 @@
 <div class="popup" id="popup" role="dialog" aria-modal="true" aria-labelledby="popup-nadpis" hidden>
   <div class="popup-okno">
     <button type="button" class="popup-zavrit" aria-label="Zavřít okno" data-popup-zavrit>×</button>
-    <small>26. 12. 2026 – 3. 1. 2027</small>
-    <h2 id="popup-nadpis">Silvestr na Engadinu</h2>
-    <p>Oslava konce roku na horách, lyžování od hotelu a večer u krbu. Pobyt s polopenzí od <b>1 350 Kč</b> za osobu a noc.</p>
-    <p><a class="btn" href="{{ url('silvestr/') }}">Silvestrovský pobyt</a> <a class="popup-druhe" href="{{ url('poptavka/') }}">Poptat pobyt</a></p>
+    <small>Zima 2026/2027</small>
+    <h2 id="popup-nadpis">Zima na Šumavě a v Jizerských horách</h2>
+    <p>Vyberte si pobyt v jednom z našich hotelů.</p>
+    <p><a class="btn" href="https://zimaprovsechny.cz" target="_blank" rel="noopener">Prohlédnout zimní nabídku</a></p>
   </div>
 </div>
 <script src="{{ asset('js/main.js') }}" defer></script>
