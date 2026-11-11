@@ -26,8 +26,8 @@
   "sameas": [],
   "cenove_rozpeti": "850–1 350 Kč za osobu a noc",
   "formular": {
-    "endpoint": "",
-    "demo": true,
+    "endpoint": "https://formsubmit.co/obchod@lipperthotels.com",
+    "demo": false,
     "predmet": "Poptávka pobytu z webu Hotel Engadin"
   },
   "mapa": "https://www.google.com/maps/search/?api=1&query=Engadin+Hotel+%C5%BDelezn%C3%A1+Ruda+35",

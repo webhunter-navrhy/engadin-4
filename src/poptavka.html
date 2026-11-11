@@ -7,7 +7,7 @@
 <section class="sekce">
   <div class="obal">
     <p class="uvodni">Ať plánujete školu v přírodě, lyžařský výcvik, soustředění nebo výlet oddílu, rádi Vám připravíme nabídku na celý pobyt. Stačí vyplnit pár údajů níže a ozveme se Vám co nejdříve.</p>
-    <form class="formular" method="post" data-endpoint="" data-demo="1">
+    <form class="formular" method="post" {% if site.formular.endpoint and not site.formular.demo %}action="{{ site.formular.endpoint }}"{% endif %} data-endpoint="{{ site.formular.endpoint }}" data-demo="{{ 1 if site.formular.demo or not site.formular.endpoint else 0 }}">
       <label class="cela">Typ pobytu
         <select name="skupina"><option>Škola v přírodě</option><option>Lyžařský výcvik</option><option>Sportovní soustředění</option><option>Turistický oddíl</option><option>Silvestr 2026</option><option>Jiný pobyt</option></select>
       </label>
@@ -22,6 +22,8 @@
       <label class="cela">Strava<select name="strava"><option>Plná penze vč. pitného režimu</option><option>Polopenze</option><option>Pouze snídaně</option><option>Domluvíme se</option></select></label>
       <label class="cela">Doplňující informace<textarea name="zprava" placeholder="Věk dětí, program, příjezd autobusem, strava pro alergiky…"></textarea></label>
       <label class="cela souhlas"><input type="checkbox" name="souhlas" required> Souhlasím se zpracováním osobních údajů dle GDPR za účelem vyřízení poptávky. *</label>
+      <input type="hidden" name="_subject" value="{{ site.formular.predmet }}">
+      <input type="hidden" name="_captcha" value="false">
       <div class="past" aria-hidden="true"><label>Nevyplňovat <input name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
       <button type="submit" class="btn">Odeslat poptávku</button>
       <p class="formular-stav" role="status" aria-live="polite"></p>
