@@ -3,7 +3,11 @@
   "stitek": "Železná Ruda · Šumava",
   "nadpis": "Klid a příroda na kraji sjezdovky",
   "text": "Hotel Engadin stojí přímo u ski areálu Belveder, stranou rušné silnice. Školy v přírodě, lyžařské výcviky, sportovní kluby i turistické oddíly tu mají celý hotel pod jednou střechou.",
-  "pata": ["140 lůžek", "Sjezdovka u hotelu", "Biotop Žabáky 250 m"]
+  "pata": [
+   "140 lůžek",
+   "Sjezdovka u hotelu",
+   "Biotop Žabáky 250 m"
+  ]
  },
  "skupiny": {
   "nadpis": "Hotel pro skupiny na Šumavě",
@@ -13,13 +17,31 @@
   "nadpis": "Ceny pro skupiny",
   "perex": "Ceny jsou za osobu a noc. Čím déle zůstanete, tím je pobyt levnější.",
   "karty": [
-   {"stitek": "1–3 noci", "nadpis": "Krátký pobyt", "cena": "1 350 Kč", "cena_popis": "s polopenzí", "text": "Výlet třídy, víkendové soustředění nebo zastávka oddílu. Jen se snídaní 1 000 Kč."},
-   {"stitek": "4 a více nocí", "nadpis": "Týden na horách", "cena": "1 200 Kč", "cena_popis": "s polopenzí", "text": "Škola v přírodě, lyžařský výcvik nebo tábor. Jen se snídaní 850 Kč."},
-   {"stitek": "26. 12. 2026 – 3. 1. 2027", "nadpis": "Silvestr na Engadinu", "cena": "1 350 Kč", "cena_popis": "s polopenzí", "text": "Oslava konce roku na horách, lyžování od hotelu a večer u krbu. Silvestrovský večer 900 Kč, min. 3 noci."}
+   {
+    "stitek": "1–3 noci",
+    "nadpis": "Krátký pobyt",
+    "cena": "1 350 Kč",
+    "cena_popis": "s polopenzí",
+    "text": "Výlet třídy, víkendové soustředění nebo zastávka oddílu. Jen se snídaní 1 000 Kč."
+   },
+   {
+    "stitek": "4 a více nocí",
+    "nadpis": "Týden na horách",
+    "cena": "1 200 Kč",
+    "cena_popis": "s polopenzí",
+    "text": "Škola v přírodě, lyžařský výcvik nebo tábor. Jen se snídaní 850 Kč."
+   },
+   {
+    "stitek": "26. 12. 2026 – 3. 1. 2027",
+    "nadpis": "Silvestr na Engadinu",
+    "cena": "1 350 Kč",
+    "cena_popis": "s polopenzí",
+    "text": "Oslava konce roku na horách, lyžování od hotelu a večer u krbu. Silvestrovský večer 900 Kč, min. 3 noci."
+   }
   ],
   "poznamka": "Děti do 2,99 let zdarma bez nároku na lůžko · děti do 9 let sleva 40 % · do 15 let sleva 20 % z ubytování i stravování"
  },
- "checkin": "Check-in od 14 hodin, check-out do 10 hodin. Na příjezdu se můžeme domluvit individuálně.",
+ "checkin": "Check-in od 14 hodin, check-out do 10 hodin. Na příjezdu se můžeme domluvit individuálně. TEST",
  "silvestr": {
   "stitek": "26. prosince 2026 – 3. ledna 2027",
   "nadpis": "Oslavte konec roku v srdci Šumavy",
@@ -38,9 +60,18 @@
   "cena_nadpis": "1 350 Kč za osobu a noc",
   "cena_popis": "za dospělou osobu s polopenzí",
   "cena_radky": [
-   ["Děti 3–9 let včetně", "−40 %"],
-   ["Děti 10–15 let včetně", "−20 %"],
-   ["Silvestrovský večer 31. 12. (povinný, platí dětské slevy)", "900 Kč"]
+   [
+    "Děti 3–9 let včetně",
+    "−40 %"
+   ],
+   [
+    "Děti 10–15 let včetně",
+    "−20 %"
+   ],
+   [
+    "Silvestrovský večer 31. 12. (povinný, platí dětské slevy)",
+    "900 Kč"
+   ]
   ],
   "cena_text": "Zvýhodněné ceny platí při pobytu alespoň na 3 noci. Počet pokojů za zvýhodněnou cenu je omezen, proto doporučujeme rezervaci co nejdříve. Finální cenu Vám vypočítáme podle počtu osob, věku dětí a délky pobytu."
  }
