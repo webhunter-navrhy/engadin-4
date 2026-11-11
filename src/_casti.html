@@ -6,3 +6,5 @@
   <h1>{{ nadpis }}</h1>
 </section>
 {% endmacro %}
+
+{% macro tabulka(sloupce, radky) %}<table class="tabulka">{% if sloupce %}<thead><tr>{% for c in sloupce %}<th{% if not loop.first %} class="c"{% endif %}>{{ c }}</th>{% endfor %}</tr></thead>{% endif %}<tbody>{% for r in radky %}<tr>{% for c in r %}<td{% if not loop.first %} class="c"{% endif %}>{{ c }}</td>{% endfor %}</tr>{% endfor %}</tbody></table>{% endmacro %}

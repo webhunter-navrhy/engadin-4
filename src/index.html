@@ -6,22 +6,22 @@
 <section class="hero">
   {{ img('zima-svah-2.jpg', 'Hotel Engadin v zimě, za ním sjezdovka Belveder a zasněžený smrkový les', sizes='100vw') }}
   <div class="hero-in">
-    {{ stitek('Železná Ruda · Šumava', 'vlevo') }}
-    <h1>Klid a příroda na kraji sjezdovky</h1>
-    <p>Hotel Engadin stojí přímo u ski areálu Belveder, stranou rušné silnice. Školy v přírodě, lyžařské výcviky, sportovní kluby i turistické oddíly tu mají celý hotel pod jednou střechou.</p>
+    {{ stitek(data.texty.hero.stitek, 'vlevo') }}
+    <h1>{{ data.texty.hero.nadpis }}</h1>
+    <p>{{ data.texty.hero.text }}</p>
     <div class="akce"><a class="btn" href="{{ url('poptavka/') }}">Poptat pobyt</a><a class="odkaz" href="{{ url('cenik/') }}">Ceník pro skupiny</a></div>
   </div>
-  <div class="hero-pata"><span>140 lůžek</span><span>Sjezdovka u hotelu</span><span>Biotop Žabáky 250 m</span></div>
+  <div class="hero-pata">{% for t in data.texty.hero.pata %}<span>{{ t }}</span>{% endfor %}</div>
 </section>
 
 <section class="sekce" id="skupiny">
   <div class="obal" data-odhal>
     {{ stitek('Školy a skupiny') }}
-    <h2 class="h2 stred">Hotel pro skupiny na Šumavě</h2>
+    <h2 class="h2 stred">{{ data.texty.skupiny.nadpis }}</h2>
   </div>
   <div class="obal dvoj" style="margin-top:50px" data-odhal>
     <div>
-      <p>Díky poloze přímo u ski areálu Belveder je Engadin ideálním místem pro lyžařské výcviky a díky množství turistických tras v okolí i pro školy v přírodě a sportovní soustředění. Hotel leží daleko od hlavní silnice, takže si děti můžou v klidu hrát venku.</p>
+      <p>{{ data.texty.skupiny.text }}</p>
       <div class="fakta">
         <div class="fakt"><svg viewBox="0 0 24 24"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6M3 14h18M3 18v2M21 18v2M6 10V7a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"/></svg><b>140</b><span>lůžek</span></div>
         <div class="fakt"><svg viewBox="0 0 24 24"><path d="M4 21V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16M2 21h20M9 7h2M13 7h2M9 11h2M13 11h2M10 21v-4h4v4"/></svg><b>36</b><span>pokojů</span></div>
@@ -82,7 +82,7 @@
       <div class="foto">{{ img('spolecenska.jpg', 'Společenská místnost se stolky a židlemi', sizes='(min-width: 900px) 62vw, 100vw') }}</div>
       <div class="karta"><h3>Společenské místnosti</h3><p>Čtyři společenské místnosti pro výuku, porady, teorii lyžování nebo večerní program. K tomu stolní tenis, stolní fotbal a šipky.</p><a class="odkaz" href="{{ url('poptavka/') }}">Poptat pobyt</a></div>
     </div>
-    <p class="drobne">Check-in od 14 hodin, check-out do 10 hodin. Na příjezdu se můžeme domluvit individuálně.</p>
+    <p class="drobne">{{ data.texty.checkin }}</p>
   </div>
 </section>
 
@@ -105,14 +105,14 @@
 <section class="sekce pisek-2" id="ceny">
   <div class="obal" data-odhal>
     {{ stitek('Ceník') }}
-    <h2 class="h2 stred">Ceny pro skupiny</h2>
-    <p class="perex stred">Ceny jsou za osobu a noc. Čím déle zůstanete, tím je pobyt levnější.</p>
+    <h2 class="h2 stred">{{ data.texty.domu_ceny.nadpis }}</h2>
+    <p class="perex stred">{{ data.texty.domu_ceny.perex }}</p>
     <div class="karty">
-      <article class="kc">{{ img('jidelna-okna.jpg', 'Jídelna s okny do lesa', sizes='(min-width: 900px) 32vw, 100vw') }}<div class="kc-in"><small>1–3 noci</small><h3>Krátký pobyt</h3><p class="cena"><b>1 350 Kč</b> s polopenzí</p><p>Výlet třídy, víkendové soustředění nebo zastávka oddílu. Jen se snídaní 1 000 Kč.</p><a class="odkaz" href="{{ url('poptavka/') }}">Poptat pobyt</a></div></article>
-      <article class="kc">{{ img('zima-sjezdovka.jpg', 'Sjezdovka u hotelu', sizes='(min-width: 900px) 32vw, 100vw') }}<div class="kc-in"><small>4 a více nocí</small><h3>Týden na horách</h3><p class="cena"><b>1 200 Kč</b> s polopenzí</p><p>Škola v přírodě, lyžařský výcvik nebo tábor. Jen se snídaní 850 Kč.</p><a class="odkaz" href="{{ url('poptavka/') }}">Poptat pobyt</a></div></article>
-      <article class="kc" id="silvestr">{{ img('noc.jpg', 'Hotel Engadin v zimní noci', sizes='(min-width: 900px) 32vw, 100vw') }}<div class="kc-in"><small>26. 12. 2026 – 3. 1. 2027</small><h3>Silvestr na Engadinu</h3><p class="cena"><b>1 350 Kč</b> s polopenzí</p><p>Oslava konce roku na horách, lyžování od hotelu a večer u krbu. Silvestrovský večer 900 Kč, min. 3 noci.</p><a class="odkaz" href="{{ url('silvestr/') }}">Silvestrovský pobyt</a></div></article>
+      {% set k = data.texty.domu_ceny.karty[0] %}<article class="kc">{{ img('jidelna-okna.jpg', 'Jídelna s okny do lesa', sizes='(min-width: 900px) 32vw, 100vw') }}<div class="kc-in"><small>{{ k.stitek }}</small><h3>{{ k.nadpis }}</h3><p class="cena"><b>{{ k.cena }}</b> {{ k.cena_popis }}</p><p>{{ k.text }}</p><a class="odkaz" href="{{ url('poptavka/') }}">Poptat pobyt</a></div></article>
+      {% set k = data.texty.domu_ceny.karty[1] %}<article class="kc">{{ img('zima-sjezdovka.jpg', 'Sjezdovka u hotelu', sizes='(min-width: 900px) 32vw, 100vw') }}<div class="kc-in"><small>{{ k.stitek }}</small><h3>{{ k.nadpis }}</h3><p class="cena"><b>{{ k.cena }}</b> {{ k.cena_popis }}</p><p>{{ k.text }}</p><a class="odkaz" href="{{ url('poptavka/') }}">Poptat pobyt</a></div></article>
+      {% set k = data.texty.domu_ceny.karty[2] %}<article class="kc" id="silvestr">{{ img('noc.jpg', 'Hotel Engadin v zimní noci', sizes='(min-width: 900px) 32vw, 100vw') }}<div class="kc-in"><small>{{ k.stitek }}</small><h3>{{ k.nadpis }}</h3><p class="cena"><b>{{ k.cena }}</b> {{ k.cena_popis }}</p><p>{{ k.text }}</p><a class="odkaz" href="{{ url('silvestr/') }}">Silvestrovský pobyt</a></div></article>
     </div>
-    <p class="pozn">Děti do 2,99 let zdarma bez nároku na lůžko · děti do 9 let sleva 40 % · do 15 let sleva 20 % z ubytování i stravování</p>
+    <p class="pozn">{{ data.texty.domu_ceny.poznamka }}</p>
   </div>
 </section>
 

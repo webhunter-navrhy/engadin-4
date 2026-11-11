@@ -1,0 +1,237 @@
+{
+ "uvod": "Ceník skupinových pobytů 2027. Ceny jsou v Kč vč. DPH za osobu a noc, není-li uvedeno jinak. Čím déle zůstanete, tím je pobyt levnější. Pro školy a velké skupiny připravíme nabídku na celý pobyt.",
+ "tabulky": [
+  {
+   "id": "skoly",
+   "stitek": "Školy",
+   "nadpis": "Škola v přírodě",
+   "sloupce": [
+    "Kategorie",
+    "Cena / osoba / noc"
+   ],
+   "radky": [
+    [
+     "Žáci 1. stupeň",
+     "830 Kč"
+    ],
+    [
+     "Žáci 2. stupeň",
+     "860 Kč"
+    ],
+    [
+     "Doprovod",
+     "910 Kč"
+    ]
+   ],
+   "poznamka": "Cena je uvedena vč. plné penze (strava 5× denně) a pitného režimu; na 20 platících žáků 1 pedagog zdarma."
+  },
+  {
+   "id": "vycvik",
+   "stitek": "Výcvik",
+   "nadpis": "Lyžařský výcvikový kurz",
+   "sloupce": [
+    "Kategorie",
+    "Cena / osoba / noc"
+   ],
+   "radky": [
+    [
+     "Žáci 1. stupeň",
+     "890 Kč"
+    ],
+    [
+     "Žáci 2. stupeň",
+     "920 Kč"
+    ],
+    [
+     "Doprovod",
+     "970 Kč"
+    ]
+   ],
+   "poznamka": "Cena je uvedena vč. plné penze (strava 5× denně) a pitného režimu; na 20 platících žáků 1 pedagog zdarma."
+  },
+  {
+   "id": "stp",
+   "stitek": "Skupiny",
+   "nadpis": "Skupinové pobyty STP",
+   "sloupce": [
+    "Období",
+    "Polopenze – jednotné jídlo",
+    "Plná penze – jednotné jídlo",
+    "Polopenze – bufet (2 jídla)",
+    "Plná penze – oběd jednotné jídlo, večeře bufet"
+   ],
+   "radky": [
+    [
+     "celoročně",
+     "1 030 Kč",
+     "1 200 Kč",
+     "1 220 Kč",
+     "1 340 Kč"
+    ]
+   ],
+   "poznamka": "Na 20 platících osob 1 osoba zdarma."
+  },
+  {
+   "id": "domovy",
+   "stitek": "Dětské domovy",
+   "nadpis": "Dětské domovy",
+   "sloupce": [
+    "Kategorie",
+    "Cena / osoba / noc"
+   ],
+   "radky": [
+    [
+     "Děti – 1. stupeň ZŠ",
+     "660 Kč"
+    ],
+    [
+     "Děti – 2. stupeň ZŠ",
+     "690 Kč"
+    ],
+    [
+     "Doprovod",
+     "730 Kč"
+    ]
+   ],
+   "poznamka": "Sleva 20 %, platí do 31. 12. 2027. Cena je uvedena vč. plné penze (strava 5× denně) a pitného režimu."
+  },
+  {
+   "id": "program",
+   "stitek": "Program",
+   "nadpis": "Program k výběru",
+   "sloupce": [
+    "Program",
+    "Cena",
+    "Jednotka"
+   ],
+   "radky": [
+    [
+     "Prohlídka ITC a večerní kvíz znalostí",
+     "zdarma",
+     ""
+    ],
+    [
+     "Výlet na koloběžkách (3 hod, 2 trasy, vč. helmy)",
+     "300 Kč",
+     "osoba"
+    ],
+    [
+     "Ping-pongový turnaj (mokrá varianta)",
+     "1 000 Kč",
+     "skupina"
+    ],
+    [
+     "Turistický výlet po Šumavě s výkladem o přírodě",
+     "1 000 Kč",
+     "skupina"
+    ],
+    [
+     "Střelecké odpoledne (3 hod, luk, prak, pistolová kuše)",
+     "3 500 Kč",
+     "skupina"
+    ],
+    [
+     "Sportovní den (malá kopaná + střelecké odpoledne)",
+     "6 000 Kč",
+     "skupina"
+    ]
+   ],
+   "poznamka": ""
+  }
+ ],
+ "storno": {
+  "nadpis": "Program k výběru a storno podmínky",
+  "texty": [
+   "Storno podmínky skupinových pobytů jsou součástí smluv.",
+   "V případě snížení počtu osob o méně než 10 % nebude storno účtováno. V případě výraznějšího poklesu účastníků/hostů v rámci skupiny bude storno řešeno individuálně v závislosti na rozsahu a též době zbývající do termínu nástupu od oznámení poklesu počtu osob. Obecně jsou uvažovány následující storno podmínky ve vazbě na termín oznámení změny:"
+  ],
+  "sloupce": [
+   "Termín oznámení změny",
+   "Vlastním rozhodnutím skupiny",
+   "Nařízením / vyšší moc"
+  ],
+  "radky": [
+   [
+    "60–30 dnů před příjezdem",
+    "15 %",
+    "5 %"
+   ],
+   [
+    "29–15 dnů před příjezdem",
+    "30 %",
+    "10 %"
+   ],
+   [
+    "14–4 dny před příjezdem",
+    "50 %",
+    "15 %"
+   ],
+   [
+    "3–0 dnů před příjezdem",
+    "90–100 %",
+    "20 %"
+   ]
+  ]
+ },
+ "individualni": {
+  "uvod": "Ceník 2027 pro individuální hosty a firmy. Ceny jsou v Kč vč. DPH za osobu a noc, není-li uvedeno jinak. Čím déle zůstanete, tím je pobyt levnější.",
+  "ceny": {
+   "sloupce": [
+    "Délka pobytu",
+    "Polopenze",
+    "Pouze snídaně"
+   ],
+   "radky": [
+    [
+     "1–3 noci",
+     "1 350 Kč",
+     "1 000 Kč"
+    ],
+    [
+     "4 a více nocí",
+     "1 200 Kč",
+     "850 Kč"
+    ]
+   ]
+  },
+  "slevy": [
+   "Dítě do 2,99 let včetně: zdarma bez nároku na lůžko",
+   "Dítě do 9 let včetně: sleva 40 % z ubytování i stravování",
+   "Dítě do 15 let včetně: sleva 20 % z ubytování i stravování",
+   "Držitelé průkazu ZTP a ZTP/P: sleva 25 % z ubytování",
+   "Senioři nad 65 let: sleva 20 % z ubytování",
+   "Věrní hosté: sleva až 20 %"
+  ],
+  "slevy_poznamka": "Slevy se nevztahují na silvestrovské pobyty a nelze je kombinovat (platí vždy nejvyšší sleva).",
+  "storno": {
+   "sloupce": [
+    "Zrušení pobytu",
+    "Storno poplatek"
+   ],
+   "radky": [
+    [
+     "více než 101 dní před příjezdem",
+     "20 %"
+    ],
+    [
+     "61–100 dní před příjezdem",
+     "40 %"
+    ],
+    [
+     "31–60 dní před příjezdem",
+     "60 %"
+    ],
+    [
+     "5–30 dní před příjezdem",
+     "80 %"
+    ],
+    [
+     "méně než 5 dní před příjezdem",
+     "100 %"
+    ]
+   ],
+   "text": "Storno se počítá z celkové ceny pobytu. Rezervace je potvrzena po úhradě zálohové faktury. U slevových poukazů a pobytových balíčků není možné rezervovaný termín zrušit, storno je vždy 100 %."
+  },
+  "checkin": "Check-in od 14 hodin, check-out do 10 hodin. Na příjezdu se můžeme domluvit individuálně."
+ }
+}
