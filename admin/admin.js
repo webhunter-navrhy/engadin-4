@@ -8,7 +8,7 @@ const CFG = {
 const FILES = { texty: '_data/texty.json', cenik: '_data/cenik.json', galerie: '_data/galerie.json', site: '_data/site.json' };
 const LABEL = { texty: 'Texty', cenik: 'Ceník', galerie: 'Fotogalerie', site: 'Kontakty' };
 const SK = 'engadin_admin';
-const S = { sess: null, user: '', D: {}, snap: {}, pending: {}, preview: {}, saving: false, lib: null };
+const S = { sess: null, user: '', D: {}, snap: {}, pending: {}, preview: {}, saving: false, lib: null, forms: null };
 /* ---------------------------------------------------------------- ikony */
 const I = (d) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
 const IC = {
@@ -19,6 +19,8 @@ const IC = {
   gear: I('<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8 2 2 0 1 1-2.8 2.8 1.7 1.7 0 0 0-2.8 1.2 2 2 0 1 1-4 0 1.7 1.7 0 0 0-2.8-1.2 2 2 0 1 1-2.8-2.8A1.7 1.7 0 0 0 3.3 14a2 2 0 1 1 0-4 1.7 1.7 0 0 0 1.2-2.8 2 2 0 1 1 2.8-2.8A1.7 1.7 0 0 0 10 3.3a2 2 0 1 1 4 0 1.7 1.7 0 0 0 2.8 1.2 2 2 0 1 1 2.8 2.8A1.7 1.7 0 0 0 20.7 10a2 2 0 1 1 0 4 1.7 1.7 0 0 0-1.3 1z"/>'),
   help: I('<circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h0"/>'),
   ext: I('<path d="M14 4h6v6M20 4L10 14"/><path d="M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/>'),
+  inbox: I('<path d="M3 13h5l1.5 3h5l1.5-3h5"/><path d="M5 5h14l2 8v6H3v-6z"/>'),
+  refresh: I('<path d="M20 11a8 8 0 0 0-14.9-3M4 4v4h4M4 13a8 8 0 0 0 14.9 3M20 20v-4h-4"/>'),
   menu: I('<path d="M4 7h16M4 12h16M4 17h16"/>'),
   x: I('<path d="M18 6L6 18M6 6l12 12"/>'),
   up: I('<path d="M12 19V5M6 11l6-6 6 6"/>'),
@@ -300,7 +302,7 @@ function fStrList(arr, label, o = {}) {
 
 /* ---------------------------------------------------------------- pohľady */
 const NAV = [
-  ['', 'Přehled', 'home'], ['-'],
+  ['', 'Přehled', 'home'], ['poptavky', 'Poptávky', 'inbox'], ['-'],
   ['uvod', 'Úvodní stránka', 'text', 'texty'], ['cenik', 'Ceník skupin', 'bolt', 'cenik'], ['individualni', 'Ceník individuální', 'users', 'cenik'],
   ['silvestr', 'Silvestr', 'info', 'texty'], ['galerie', 'Fotogalerie', 'image', 'galerie'],
   ['kontakty', 'Kontakty', 'phone', 'site'], ['-'],
@@ -329,14 +331,16 @@ function fTable(t, label) {
 }
 
 function vDash() {
-  const tiles = [['uvod', 'Úvodní stránka', 'text', 'Nadpis, text, ceny pro skupiny'], ['cenik', 'Ceník skupin', 'bolt', 'Školy, výcviky, soustředění, domovy'], ['individualni', 'Ceník individuální', 'users', 'Ceny, slevy, storno'],
+  const newBox = h('div');
+  const tiles = [['poptavky', 'Poptávky', 'inbox', 'Poptávky odeslané z webu'], ['uvod', 'Úvodní stránka', 'text', 'Nadpis, text, ceny pro skupiny'], ['cenik', 'Ceník skupin', 'bolt', 'Školy, výcviky, soustředění, domovy'], ['individualni', 'Ceník individuální', 'users', 'Ceny, slevy, storno'],
     ['silvestr', 'Silvestr', 'info', 'Nabídka silvestrovského pobytu'], ['galerie', 'Fotogalerie', 'image', 'Fotky hotelu'], ['kontakty', 'Kontakty', 'phone', 'Telefon, e-mail, adresa']]
     .map(([id, label, ic, sub]) => h('a.tile', { href: '#/' + id }, h('span', { html: IC[ic] }), h('b', {}, label), h('small', {}, sub)));
   view('Dobrý den 👋', 'Tady upravujete texty, ceníky, fotogalerii a kontakty webu. Změny uložíte tlačítkem „Uložit změny“ dole, na webu se objeví zhruba za minutu.',
-    h('div.tiles', {}, tiles),
+    newBox, h('div.tiles', {}, tiles),
     card('Jak to funguje', null, h('div.help', { html: '<ol><li>Vlevo (na mobilu v menu ☰) vyberte, co chcete upravit.</li><li>Přepište text, upravte cenu nebo nahrajte fotky.</li><li>Dole se objeví lišta – klikněte na <b>Uložit změny</b>.</li><li>Nahoře uvidíte „Zveřejňuji změny…“ a za chvíli „Web je aktuální“.</li></ol>' })),
     card('Co zde upravit nejde', null, h('p', {}, 'Stránky Pobyty, Ubytování, Okolí a Poptávka a dlaždice na úvodní stránce mají zatím text napevno. Jejich změnu nám stačí napsat e-mailem.')),
     h('a.btn.btn-dark', { href: CFG.site, target: '_blank', rel: 'noopener', style: 'margin-top:.5rem', html: IC.ext + 'Otevřít web' }));
+  loadForms().then((d) => { const n = d.forms.filter((f) => f.s === 'nova').length; if (n) newBox.replaceChildren(h('a.alert', { href: '#/poptavky' }, h('span', { html: IC.inbox }), h('b', {}, `${n} ${plural(n, 'nová poptávka', 'nové poptávky', 'nových poptávek')}`), h('small', {}, 'Zobrazit →'))); }).catch(() => {});
 }
 
 function vUvod() {
@@ -409,17 +413,57 @@ function vGalerie() {
 
 function vKontakty() {
   const s = S.D.site; const k = s.kontakt; k.adresa = k.adresa || {};
-  view('Kontakty', 'Telefon, e-mail a adresa se zobrazují v hlavičce, patičce a na stránce Poptávka. Kam chodí poptávky z formuláře, nastavujeme my – stačí nám napsat.',
+  view('Kontakty', 'Telefon, e-mail a adresa se zobrazují v hlavičce, patičce a na stránce Poptávka. Poptávky z formuláře se ukládají do administrace (sekce Poptávky)' + (S.forms?.to ? ' a upozornění chodí e-mailem na ' + S.forms.to : '') + '. Kam chodí upozornění, nastavujeme my – stačí nám napsat.',
     card('Hlavní kontakt', null, row2(fText(k, 'telefon', 'Telefon', { type: 'tel' }), fText(k, 'email', 'E-mail', { type: 'email' })),
       fText(k.adresa, 'ulice', 'Adresa (ulice a číslo)'), row2(fText(k.adresa, 'psc', 'PSČ'), fText(k.adresa, 'mesto', 'Obec'))),
     card('Odkazy na navigaci', null, fText(s, 'mapa', 'Odkaz na Google Mapy', { type: 'url' }), fText(s, 'waze', 'Odkaz na Waze', { type: 'url' })),
     card('Web', null, fText(s, 'cenove_rozpeti', 'Cenové rozpětí (pro Google)'), fText(s, 'popis', 'Popis webu (Google, sdílení na sociálních sítích)', { multi: true, rows: 3, hint: 'Ideálně 120–160 znaků.' })));
 }
 
+/* ---------------------------------------------------------------- poptávky (backend KV) */
+async function loadForms(force) { if (!S.forms || force) S.forms = await api('/forms'); return S.forms; }
+const fmtD = (iso) => { try { return new Date(iso).toLocaleString('cs-CZ', { day: 'numeric', month: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' }); } catch { return iso; } };
+async function vPoptavky() {
+  const list = h('div', {}, h('p.empty', {}, 'Načítám…'));
+  const filt = { s: '' };
+  view('Poptávky', 'Všechno, co návštěvníci odešlou z formuláře na webu. Kliknutím otevřete detail, změníte stav nebo připíšete poznámku.',
+    h('div', { style: 'display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem;align-items:center' },
+      ...[['', 'Vše'], ['nova', 'Nové'], ['potvrzena', 'Potvrzené'], ['vyrizena', 'Vyřízené'], ['zrusena', 'Zrušené']].map(([v, t]) => h('button.btn.btn-sm' + (v === '' ? '.btn-dark' : '.btn-ghost'), { type: 'button', 'data-f': v, onclick: (e) => { filt.s = v; e.target.parentNode.querySelectorAll('[data-f]').forEach((b) => { b.className = 'btn btn-sm ' + (b === e.target ? 'btn-dark' : 'btn-ghost'); }); render(); } }, t)),
+      h('button.btn.btn-sm', { type: 'button', style: 'margin-left:auto', onclick: async () => { await loadForms(true).then((x) => { D = x; }).catch((e) => toast('Nepodařilo se načíst', e.message, 'err')); render(); }, html: IC.refresh + 'Obnovit' })),
+    card(null, null, list));
+  let D;
+  const render = () => {
+    if (!D) return;
+    const STAT = D.statuses || {};
+    const rows = D.forms.filter((f) => !filt.s || f.s === filt.s);
+    if (!rows.length) return list.replaceChildren(h('p.empty', {}, D.forms.length ? 'V tomto stavu nic není.' : 'Zatím žádné poptávky. Jakmile někdo odešle formulář na webu, objeví se tady.'));
+    list.replaceChildren(h('div.forms', {}, rows.map((f) => h('button.frow' + (f.s === 'nova' ? '.new' : ''), { type: 'button', onclick: () => detail(f.key) },
+      h('span.fst.st-' + f.s, {}, STAT[f.s] || f.s), h('b', {}, f.n || '(bez jména)'),
+      h('span', {}, 'Poptávka'), h('span', {}, f.w ? 'termín ' + f.w : ''), h('small', {}, fmtD(f.d))))));
+  };
+  const detail = async (key) => {
+    let r; try { r = await api('/forms?key=' + encodeURIComponent(key)); } catch (e) { return toast('Nepodařilo se načíst', e.message, 'err'); }
+    const st = { status: r.status, note: r.note || '' };
+    const body = h('div', {},
+      h('table.ftable', {}, h('tbody', {},
+        ...r.fields.map(([k, v]) => h('tr', {}, h('th', {}, k), h('td', {}, k === 'E-mail' ? h('a', { href: 'mailto:' + v }, v) : /^Telefon/.test(k) ? h('a', { href: 'tel:' + String(v).replace(/\s/g, '') }, v) : v))),
+        h('tr', {}, h('th', {}, 'Odesláno'), h('td', {}, fmtD(r.created))))),
+      fSelect(st, 'status', 'Stav', Object.entries(S.forms.statuses)), fText(st, 'note', 'Poznámka (vidíte jen vy)', { multi: true, rows: 3 }));
+    const res = await modal({ title: r.typeLabel || 'Poptávka', body, actions: [{ label: 'Smazat', value: 'del', cls: 'btn-ghost' }, { label: 'Zavřít', value: null }, { label: 'Uložit', cls: 'btn-primary', value: 'save' }] });
+    try {
+      if (res === 'save') { await api('/forms', { method: 'POST', body: JSON.stringify({ key, status: st.status, note: st.note }) }); toast('Uloženo', '', 'ok'); }
+      if (res === 'del' && await confirmDlg('Smazat poptávku?', 'Poptávka bude z přehledu trvale odstraněna.')) { await api('/forms', { method: 'POST', body: JSON.stringify({ key, delete: true }) }); toast('Smazáno'); }
+      if (res) { D = await loadForms(true); render(); }
+    } catch (e) { toast('Nepodařilo se uložit', e.message, 'err'); }
+  };
+  try { D = await loadForms(true); render(); } catch (e) { list.replaceChildren(h('p.empty', {}, 'Poptávky se nepodařilo načíst: ' + e.message)); }
+}
+
 function vNavod() {
   view('Návod', null,
     card('Změnit text nebo cenu', null, h('div.help', { html: '<ol><li>Vyberte část webu v menu vlevo.</li><li>Přepište text nebo cenu v tabulce.</li><li>Dole klikněte na <b>Uložit změny</b>.</li></ol>' })),
     card('Přidat fotky do fotogalerie', null, h('div.help', { html: '<ol><li>Otevřete <b>Fotogalerie</b> a klikněte na <b>Nahrát fotky</b> (můžete vybrat více fotek najednou, i z mobilu).</li><li>Šipkami změníte pořadí, košem fotku smažete, kliknutím na fotku ji vyměníte.</li><li>Dole klikněte na <b>Uložit změny</b>.</li></ol>' })),
+    card('Poptávky', null, h('div.help', { html: '<ol><li>Poptávky z webu najdete v sekci <b>Poptávky</b>.</li><li>Kliknutím otevřete detail, nastavíte stav a můžete si připsat poznámku.</li><li>Odpovězte e-mailem nebo telefonem – kontakt je v detailu.</li></ol>' })),
     card('Něco nejde?', null, h('p', {}, 'Napište nám na info.webhunter@email.cz, rádi pomůžeme.')));
 }
 
@@ -465,7 +509,7 @@ function updateSavebar() {
   bar.querySelectorAll('button').forEach((b) => { b.disabled = S.saving; });
   document.querySelectorAll('.nav a[data-key]').forEach((a) => { a.querySelector('.dot')?.remove(); if (keys.includes(a.dataset.key)) a.append(h('i.dot')); });
 }
-const VIEWS = { '': vDash, uvod: vUvod, cenik: vCenik, individualni: vIndiv, silvestr: vSilvestr, galerie: vGalerie, kontakty: vKontakty, navod: vNavod, nastaveni: vSettings };
+const VIEWS = { '': vDash, poptavky: vPoptavky, uvod: vUvod, cenik: vCenik, individualni: vIndiv, silvestr: vSilvestr, galerie: vGalerie, kontakty: vKontakty, navod: vNavod, nastaveni: vSettings };
 function route() {
   const [id, arg] = location.hash.replace(/^#\/?/, '').split('/');
   (VIEWS[id] || vDash)(arg);
