@@ -5,8 +5,8 @@ const CFG = {
   id: 'engadin', site: '../',
   api: /^(localhost|127\.0\.0\.1)$/.test(location.hostname) && location.search.includes('local') ? 'http://localhost:8787' : 'https://webhunter-admin.webhunter.workers.dev',
 };
-const FILES = { texty: '_data/texty.json', cenik: '_data/cenik.json', galerie: '_data/galerie.json', site: '_data/site.json' };
-const LABEL = { texty: 'Texty', cenik: 'Ceník', galerie: 'Fotogalerie', site: 'Kontakty' };
+const FILES = { texty: '_data/texty.json', cenik: '_data/cenik.json', galerie: '_data/galerie.json', site: '_data/site.json', popup: '_data/popup.json' };
+const LABEL = { texty: 'Texty', cenik: 'Ceník', galerie: 'Fotogalerie', site: 'Kontakty', popup: 'Pop-up okno' };
 const SK = 'engadin_admin';
 const S = { sess: null, user: '', D: {}, snap: {}, pending: {}, preview: {}, saving: false, lib: null, forms: null };
 /* ---------------------------------------------------------------- ikony */
@@ -305,7 +305,7 @@ const NAV = [
   ['', 'Přehled', 'home'], ['poptavky', 'Poptávky', 'inbox'], ['-'],
   ['uvod', 'Úvodní stránka', 'text', 'texty'], ['cenik', 'Ceník skupin', 'bolt', 'cenik'], ['individualni', 'Ceník individuální', 'users', 'cenik'],
   ['silvestr', 'Silvestr', 'info', 'texty'], ['galerie', 'Fotogalerie', 'image', 'galerie'],
-  ['kontakty', 'Kontakty', 'phone', 'site'], ['-'],
+  ['popup', 'Pop-up okno', 'info', 'popup'], ['kontakty', 'Kontakty', 'phone', 'site'], ['-'],
   ['navod', 'Návod', 'help'], ['nastaveni', 'Heslo a odhlášení', 'gear'],
 ];
 const view = (title, lead, ...kids) => { const m = $('main.view'); m.replaceChildren(h('div.view-head', {}, h('h1', {}, title), lead ? h('p', {}, lead) : null), ...kids); window.scrollTo(0, 0); };
@@ -330,10 +330,26 @@ function fTable(t, label) {
   return wrap;
 }
 
+function vPopup() {
+  const P = S.D.popup;
+  const chk = h('input', { type: 'checkbox', onchange: (e) => { P.zapnuto = e.target.checked; bump(); } }); chk.checked = !!P.zapnuto;
+  view('Pop-up okno', 'Okno, které se návštěvníkovi ukáže chvíli po příchodu na web – jednou za návštěvu, zavře se křížkem. Změnu najdete na webu zhruba za minutu po uložení.',
+    card('Zobrazení', null,
+      h('label.field', {}, h('span', {}, 'Zobrazovat pop-up na webu'), h('span', {}, chk)),
+      fText(P, 'zpozdeni', 'Zobrazit po kolika sekundách', { type: 'number', inputmode: 'numeric', hint: 'Doporučujeme 3–5 sekund.' })),
+    card('Obsah okna', 'Nadpis je povinný, bez něj se okno nezobrazí. Prázdné políčko se na webu vynechá.',
+      fText(P, 'stitek', 'Malý štítek nad nadpisem', { ph: 'Silvestr 2026' }),
+      fText(P, 'nadpis', 'Nadpis'),
+      fText(P, 'text', 'Text', { multi: true, rows: 3 }),
+      fText(P, 'tlacitko', 'Text tlačítka', { ph: 'Zobrazit nabídku' }),
+      fText(P, 'odkaz', 'Kam vede tlačítko', { ph: 'https://… nebo např. poptavka/' })),
+    h('p.hint', { html: `Náhled po uložení: <a href="${CFG.site}?popup" target="_blank" rel="noopener">otevřít web s pop-upem</a>.` }));
+}
+
 function vDash() {
   const newBox = h('div');
   const tiles = [['poptavky', 'Poptávky', 'inbox', 'Poptávky odeslané z webu'], ['uvod', 'Úvodní stránka', 'text', 'Nadpis, text, ceny pro skupiny'], ['cenik', 'Ceník skupin', 'bolt', 'Školy, výcviky, soustředění, domovy'], ['individualni', 'Ceník individuální', 'users', 'Ceny, slevy, storno'],
-    ['silvestr', 'Silvestr', 'info', 'Nabídka silvestrovského pobytu'], ['galerie', 'Fotogalerie', 'image', 'Fotky hotelu'], ['kontakty', 'Kontakty', 'phone', 'Telefon, e-mail, adresa']]
+    ['silvestr', 'Silvestr', 'info', 'Nabídka silvestrovského pobytu'], ['galerie', 'Fotogalerie', 'image', 'Fotky hotelu'], ['popup', 'Pop-up okno', 'info', 'Okno s nabídkou na úvodu'], ['kontakty', 'Kontakty', 'phone', 'Telefon, e-mail, adresa']]
     .map(([id, label, ic, sub]) => h('a.tile', { href: '#/' + id }, h('span', { html: IC[ic] }), h('b', {}, label), h('small', {}, sub)));
   view('Dobrý den 👋', 'Tady upravujete texty, ceníky, fotogalerii a kontakty webu. Změny uložíte tlačítkem „Uložit změny“ dole, na webu se objeví zhruba za minutu.',
     newBox, h('div.tiles', {}, tiles),
@@ -509,7 +525,7 @@ function updateSavebar() {
   bar.querySelectorAll('button').forEach((b) => { b.disabled = S.saving; });
   document.querySelectorAll('.nav a[data-key]').forEach((a) => { a.querySelector('.dot')?.remove(); if (keys.includes(a.dataset.key)) a.append(h('i.dot')); });
 }
-const VIEWS = { '': vDash, poptavky: vPoptavky, uvod: vUvod, cenik: vCenik, individualni: vIndiv, silvestr: vSilvestr, galerie: vGalerie, kontakty: vKontakty, navod: vNavod, nastaveni: vSettings };
+const VIEWS = { '': vDash, poptavky: vPoptavky, uvod: vUvod, cenik: vCenik, individualni: vIndiv, silvestr: vSilvestr, galerie: vGalerie, popup: vPopup, kontakty: vKontakty, navod: vNavod, nastaveni: vSettings };
 function route() {
   const [id, arg] = location.hash.replace(/^#\/?/, '').split('/');
   (VIEWS[id] || vDash)(arg);

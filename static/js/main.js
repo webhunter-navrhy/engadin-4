@@ -67,8 +67,8 @@ document.querySelectorAll('form.formular').forEach(function (f) {
 });
 
 (function(){var p=document.getElementById('popup');if(!p)return;
-var klic='engadin-popup',videl=false;try{videl=sessionStorage.getItem(klic)}catch(e){}
+var klic='engadin-popup-'+(p.dataset.klic||''),videl=false;try{videl=sessionStorage.getItem(klic)&&!/[?&]popup\b/.test(location.search)}catch(e){}
 function zavrit(){p.hidden=true;try{sessionStorage.setItem(klic,'1')}catch(e){}}
 p.addEventListener('click',function(e){if(e.target===p||e.target.hasAttribute('data-popup-zavrit'))zavrit()});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!p.hidden)zavrit()});
-if(!videl)setTimeout(function(){p.hidden=false},2500);})();
+if(!videl)setTimeout(function(){p.hidden=false},(+p.dataset.zpozdeni||3)*1000);})();

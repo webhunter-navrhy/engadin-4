@@ -65,17 +65,19 @@
       <ul>{% for h in site.skupina %}<li><a href="{{ h.url }}" target="_blank" rel="noopener">{{ h.nazev }}</a><small>{{ h.misto }}</small></li>{% endfor %}</ul>
     </div>
   </div>
-  <div class="obal pata-spodek"><span>© 2026 Engadin Hotel</span><span>Návrh webu · fotky z podkladů hotelu</span></div>
+  <div class="obal pata-spodek"><span>© 2026 Engadin Hotel</span><span><a href="{{ url('admin/') }}">Administrace</a></span></div>
 </footer>
-<div class="popup" id="popup" role="dialog" aria-modal="true" aria-labelledby="popup-nadpis" hidden>
+{% set P = data.popup %}{% if P and P.zapnuto and P.nadpis %}
+<div class="popup" id="popup" role="dialog" aria-modal="true" aria-labelledby="popup-nadpis" data-klic="{{ (P.stitek ~ P.nadpis ~ P.text ~ P.odkaz)|length }}-{{ P.nadpis|length }}" data-zpozdeni="{{ P.zpozdeni or 3 }}" hidden>
   <div class="popup-okno">
     <button type="button" class="popup-zavrit" aria-label="Zavřít okno" data-popup-zavrit>×</button>
-    <small>Zima 2026/2027</small>
-    <h2 id="popup-nadpis">Zima na Šumavě a v Jizerských horách</h2>
-    <p>Vyberte si pobyt v jednom z našich hotelů.</p>
-    <p><a class="btn" href="https://zimaprovsechny.cz" target="_blank" rel="noopener">Prohlédnout zimní nabídku</a></p>
+    {% if P.stitek %}<small>{{ P.stitek }}</small>{% endif %}
+    <h2 id="popup-nadpis">{{ P.nadpis }}</h2>
+    {% if P.text %}<p>{{ P.text }}</p>{% endif %}
+    {% if P.odkaz %}<p><a class="btn" href="{{ P.odkaz if P.odkaz.startswith(('http','mailto:','/')) else url(P.odkaz) }}"{% if P.odkaz.startswith('http') %} target="_blank" rel="noopener"{% endif %}>{{ P.tlacitko or 'Zobrazit nabídku' }}</a></p>{% endif %}
   </div>
 </div>
+{% endif %}
 <script src="{{ asset('js/main.js') }}" defer></script>
 </body>
 </html>

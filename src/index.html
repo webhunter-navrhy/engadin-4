@@ -108,7 +108,7 @@
     <h2 class="h2 stred">{{ data.texty.domu_ceny.nadpis }}</h2>
     <p class="perex stred">{{ data.texty.domu_ceny.perex }}</p>
     <div class="karty">
-      {% set k = data.texty.domu_ceny.karty[0] %}<article class="kc">{{ img('jidelna-okna.jpg', 'Jídelna s okny do lesa', sizes='(min-width: 900px) 32vw, 100vw') }}<div class="kc-in"><small>{{ k.stitek }}</small><h3>{{ k.nadpis }}</h3><p class="cena"><b>{{ k.cena }}</b> {{ k.cena_popis }}</p><p>{{ k.text }}</p><a class="odkaz" href="{{ url('poptavka/') }}">Poptat pobyt</a></div></article>
+      {% set k = data.texty.domu_ceny.karty[0] %}<article class="kc">{{ img('jidelna-nova.jpg', 'Jídelna hotelu Engadin', sizes='(min-width: 900px) 32vw, 100vw') }}<div class="kc-in"><small>{{ k.stitek }}</small><h3>{{ k.nadpis }}</h3><p class="cena"><b>{{ k.cena }}</b> {{ k.cena_popis }}</p><p>{{ k.text }}</p><a class="odkaz" href="{{ url('poptavka/') }}">Poptat pobyt</a></div></article>
       {% set k = data.texty.domu_ceny.karty[1] %}<article class="kc">{{ img('zima-sjezdovka.jpg', 'Sjezdovka u hotelu', sizes='(min-width: 900px) 32vw, 100vw') }}<div class="kc-in"><small>{{ k.stitek }}</small><h3>{{ k.nadpis }}</h3><p class="cena"><b>{{ k.cena }}</b> {{ k.cena_popis }}</p><p>{{ k.text }}</p><a class="odkaz" href="{{ url('poptavka/') }}">Poptat pobyt</a></div></article>
       {% set k = data.texty.domu_ceny.karty[2] %}<article class="kc" id="silvestr">{{ img('noc.jpg', 'Hotel Engadin v zimní noci', sizes='(min-width: 900px) 32vw, 100vw') }}<div class="kc-in"><small>{{ k.stitek }}</small><h3>{{ k.nadpis }}</h3><p class="cena"><b>{{ k.cena }}</b> {{ k.cena_popis }}</p><p>{{ k.text }}</p><a class="odkaz" href="{{ url('silvestr/') }}">Silvestrovský pobyt</a></div></article>
     </div>
